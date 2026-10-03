@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="theme-color" content="#18292c">
+<meta name="theme-color" content="#7357ff">
 <title>Sabrinas Zeiterfassung</title>
 <style>
 
@@ -50,204 +50,162 @@ button{border:1px solid var(--line);background:var(--field);border-radius:3px;pa
 .multiSelect{position:relative}.multiSelectButton{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;font-weight:750;background:var(--field)}.multiSelectButton .msText{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:8px}.multiSelectMenu{position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:45;background:var(--card);border:1px solid var(--nav);padding:6px;box-shadow:8px 8px 0 rgba(24,41,44,.15);max-height:270px;overflow:auto}.multiSelectMenu.hidden{display:none}.msOption{display:flex;align-items:center;gap:9px;padding:9px 8px;font-size:12px;font-weight:750}.msOption:hover{background:var(--soft)}.msOption input{width:18px;height:18px;margin:0;accent-color:var(--accent)}.objectField.hiddenField{display:none}.objectChips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.objectChip{background:var(--blue);color:var(--blueText);border:1px solid #bcd0d2;border-radius:999px;padding:4px 8px;font:800 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
 .lookCard{background:var(--nav);color:#eef3f1;border-color:#0f1c1e}.lookCard label,.lookCard .sectionNote{color:#aebdbb}.lookSignature{display:flex;gap:8px;align-items:center;margin-top:12px}.lookSignature span{height:24px;flex:1}.lookSignature .a{background:var(--accent)}.lookSignature .b{background:var(--ice)}.lookSignature .c{background:#f5efe4}.lookSignature .d{background:#25383b}
 
-/* ---------- MOOD THEMES v6 ---------- */
+/* ---------- FANTASY THEMES v21 · Tag + Dunkel ---------- */
 :root{
-  --card-radius:4px;--control-radius:3px;--day-radius:2px;--nav-radius:0px;
-  --card-shadow:3px 3px 0 rgba(24,41,44,.08);--hero-shadow:7px 7px 0 var(--accent);
-  --body-pattern:linear-gradient(rgba(24,41,44,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(24,41,44,.025) 1px,transparent 1px);
-  --body-size:28px 28px;--hero-fg:#f8f2e7;--hero-muted:#c9d4d2;--hero-eye:#b9d3d0;--hero-rule:#ffd7ca;
-  --stat1:#dce8e5;--stat2:#eee5d3;--stat3:#e5e9da;--stat4:#efddd5;--bar-bg:#d4cec3;--bar-end:#f29a79;
-  --nav-fg:#bac8c6;--overlay:rgba(12,24,26,.55);--badge-work:#a64430;--notice:#f1eadb;--notice-line:#c3a95a;
+  --card-radius:22px;--control-radius:14px;--day-radius:13px;--nav-radius:24px;--radius-sm:12px;
+  --card-shadow:0 12px 30px rgba(25,14,48,.12);--hero-shadow:0 18px 46px rgba(31,18,58,.22);
+  --body-pattern:none;--body-size:auto;--hero-fg:#fff;--hero-muted:rgba(255,255,255,.78);--hero-eye:#fff;--hero-rule:#fff;
+  --stat1:#eee8ff;--stat2:#ffe0ef;--stat3:#dff6e8;--stat4:#fff0b8;--bar-bg:#ddd7ea;--bar-end:#ff4fb0;
+  --nav-fg:#c9c3d8;--overlay:rgba(14,9,29,.62);--badge-work:#7a2455;--notice:#f6efff;--notice-line:#9b70ff;
 }
-body{background-image:var(--body-pattern);background-size:var(--body-size)}
-.ledgerHero{color:var(--hero-fg);border-color:color-mix(in srgb,var(--nav) 78%,#000);box-shadow:var(--hero-shadow);border-radius:var(--card-radius)}
+body{background-image:var(--body-pattern);background-size:var(--body-size);background-attachment:fixed}
+.ledgerHero{color:var(--hero-fg);border-color:color-mix(in srgb,var(--nav) 72%,#000);box-shadow:var(--hero-shadow);border-radius:var(--card-radius)}
 .eyebrow{color:var(--hero-eye)}.heroMain p{color:var(--hero-muted)}.heroRule span:last-child{color:var(--hero-rule)}
 .card{background:var(--card);border-radius:var(--card-radius);box-shadow:var(--card-shadow)}
-.stat{background:var(--soft);border-radius:calc(var(--card-radius) * .72)}.grid4 .stat:nth-child(1){background:var(--stat1)}.grid4 .stat:nth-child(2){background:var(--stat2)}.grid4 .stat:nth-child(3){background:var(--stat3)}.grid4 .stat:nth-child(4){background:var(--stat4)}
+.stat{background:var(--soft);border-radius:16px}.grid4 .stat:nth-child(1){background:var(--stat1)}.grid4 .stat:nth-child(2){background:var(--stat2)}.grid4 .stat:nth-child(3){background:var(--stat3)}.grid4 .stat:nth-child(4){background:var(--stat4)}
 input,select,textarea,button{border-radius:var(--control-radius)}
-.tabs{border-radius:var(--nav-radius);background:var(--nav)}.tabs button{color:var(--nav-fg);border-radius:calc(var(--nav-radius) * .7)}
+.tabs{border-radius:var(--nav-radius);background:var(--nav)}.tabs button{color:var(--nav-fg);border-radius:17px}
 .bar{background:var(--bar-bg);border-radius:999px}.bar>div{background:linear-gradient(90deg,var(--accent),var(--bar-end))}
 .b-work{background:var(--work);color:var(--badge-work)}
 .day{border-radius:var(--day-radius)}.notice{background:var(--notice);border-color:var(--notice-line)}
-.overlay{background:var(--overlay)}.sheet{border-radius:calc(var(--card-radius) + 8px) calc(var(--card-radius) + 8px) var(--card-radius) var(--card-radius)}
+.overlay{background:var(--overlay)}.sheet{border-radius:28px 28px var(--card-radius) var(--card-radius)}
 .multiSelectMenu{border-radius:var(--control-radius)}
+.heroDecor{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.heroDecor span{position:absolute;display:block}
+.heroTop,.heroMain,.heroRule{z-index:2}
+.ledgerHero:before,.ledgerHero:after{z-index:0}
 
-/* 1 — Time Ledger: editorial / stempelkarte */
-html[data-theme="ledger"]{ }
-
-/* 2 — Soft Studio: calm, tactile, lilac + powder blue */
-html[data-theme="studio"]{
-  --bg:#f2eff7;--card:#fffafd;--text:#2f3145;--muted:#77748a;--line:#ded9e8;--accent:#ef7f91;--accent-dark:#ce6074;
-  --cream:#f8f0f3;--black:#35354b;--soft:#ece7f2;--green:#dcebdd;--greenText:#446647;--red:#f4dddd;--redText:#8a4f57;
-  --blue:#dfe9f7;--blueText:#4c6484;--yellow:#f4ebca;--yellowText:#77682f;--field:#fffefe;--work:#fde4e9;--offbg:#ebe9ef;--ice:#cad9f0;--nav:#ffffff;
-  --card-radius:24px;--control-radius:15px;--day-radius:13px;--nav-radius:23px;--card-shadow:0 10px 28px rgba(71,62,97,.08);--hero-shadow:0 15px 34px rgba(93,79,121,.18);
-  --body-pattern:radial-gradient(circle at 12% 10%,rgba(239,127,145,.13),transparent 25%),radial-gradient(circle at 90% 22%,rgba(145,171,220,.16),transparent 28%);--body-size:auto;
-  --hero-fg:#34344b;--hero-muted:#6e6a84;--hero-eye:#7e739a;--hero-rule:#9f6470;--stat1:#e5edf9;--stat2:#f4e8f1;--stat3:#e5efe1;--stat4:#f6e4e6;--bar-bg:#e3deeb;--bar-end:#a6bce9;--nav-fg:#77748a;--overlay:rgba(41,38,61,.42);--badge-work:#b25367;--notice:#f8edf1;--notice-line:#ed9aaa;
+/* FAE GARDEN — vivid floral magic */
+html[data-theme="fae"][data-mode="light"]{
+  --bg:#fff0f8;--card:#fff9fd;--text:#32123e;--muted:#765d7f;--line:#e8bed9;--accent:#f20b8f;--accent-dark:#b80068;
+  --cream:#fff1f8;--black:#32123e;--soft:#f8dff0;--green:#c9f6d9;--greenText:#17653c;--red:#ffd9e5;--redText:#8b2348;
+  --blue:#d9efff;--blueText:#245f92;--yellow:#fff0a8;--yellowText:#725600;--field:#fffefe;--work:#ffd9ec;--offbg:#eee7f0;--ice:#c9edff;--nav:#421653;
+  --stat1:#e8deff;--stat2:#ffd9ed;--stat3:#d8f6df;--stat4:#fff1a8;--bar-bg:#ead5e5;--bar-end:#7c3cff;--nav-fg:#ead8ef;
+  --card-shadow:0 12px 28px rgba(118,24,101,.13);--hero-shadow:0 16px 38px rgba(168,17,121,.25);--overlay:rgba(52,16,63,.52);
+  --badge-work:#9d125c;--notice:#fff0f8;--notice-line:#f20b8f;
+  --body-pattern:radial-gradient(circle at 7% 8%,rgba(242,11,143,.11),transparent 22%),radial-gradient(circle at 94% 20%,rgba(43,217,157,.16),transparent 25%),radial-gradient(circle at 48% 95%,rgba(124,60,255,.10),transparent 25%);
 }
-html[data-theme="studio"] .ledgerHero{background:linear-gradient(145deg,#e8ddf4 0%,#f7e6ea 52%,#dbe7f7 100%);border:1px solid #ddd0e8}
-html[data-theme="studio"] .ledgerHero:before{background-image:radial-gradient(circle,rgba(68,64,90,.12) 1px,transparent 1px);background-size:16px 16px}
-html[data-theme="studio"] .ledgerHero:after{border-color:rgba(255,255,255,.6);right:-40px;top:-20px}
-html[data-theme="studio"] .clockMark{border-color:rgba(54,52,74,.22);background:rgba(255,255,255,.42)}
-html[data-theme="studio"] .stamp{border-color:rgba(54,52,74,.25);background:rgba(255,255,255,.38)}
-html[data-theme="studio"] .tabs{border:1px solid #e2ddea;box-shadow:0 12px 32px rgba(63,55,85,.15)}
-html[data-theme="studio"] .tabs button.active{background:#34344b;color:white}
-html[data-theme="studio"] .stat{border-left:0}
-
-/* 3 — Espresso Office: coffee, leather, brass */
-html[data-theme="espresso"]{
-  --bg:#e9dfd3;--card:#f7efe4;--text:#332821;--muted:#7a685d;--line:#cbb9aa;--accent:#a5543a;--accent-dark:#713927;--cream:#efe0cf;--black:#35271f;--soft:#dfd0c1;
-  --green:#d6dfcb;--greenText:#45573a;--red:#e9d0c9;--redText:#7a4137;--blue:#d6dfe1;--blueText:#405a60;--yellow:#e6d7ad;--yellowText:#6a5824;--field:#fff9f0;--work:#ead0bf;--offbg:#ded7cf;--ice:#c9d7d6;--nav:#2c211b;
-  --card-radius:16px;--control-radius:10px;--day-radius:10px;--nav-radius:17px;--card-shadow:0 8px 0 rgba(73,50,36,.10);--hero-shadow:0 10px 0 #b58b62;
-  --body-pattern:repeating-linear-gradient(90deg,rgba(78,55,39,.025) 0 1px,transparent 1px 7px);--body-size:auto;--hero-fg:#f9eddf;--hero-muted:#d6c5b7;--hero-eye:#d7b38d;--hero-rule:#efb690;
-  --stat1:#d8dfd5;--stat2:#eadac9;--stat3:#dde2cf;--stat4:#e9d4c9;--bar-bg:#d1c2b5;--bar-end:#d39b6c;--nav-fg:#cfc0b3;--overlay:rgba(48,33,25,.58);--badge-work:#7f3f2e;--notice:#eee2d2;--notice-line:#b18a5d;
+html[data-theme="fae"][data-mode="dark"]{
+  --bg:#16091e;--card:#25112f;--text:#fff2fb;--muted:#c7a8c9;--line:#56325e;--accent:#ff42b5;--accent-dark:#c8177e;
+  --cream:#29142f;--black:#fff2fb;--soft:#35183f;--green:#244b39;--greenText:#9ff0bd;--red:#4c2235;--redText:#ffabc9;
+  --blue:#1f3d55;--blueText:#9edcff;--yellow:#51421e;--yellowText:#ffe487;--field:#1d0d26;--work:#4b1d3c;--offbg:#30253a;--ice:#21445a;--nav:#0d0713;
+  --stat1:#332550;--stat2:#4c1f3b;--stat3:#214335;--stat4:#4d3b1d;--bar-bg:#3c2744;--bar-end:#8f55ff;--nav-fg:#c9add1;
+  --card-shadow:0 14px 34px rgba(0,0,0,.32);--hero-shadow:0 18px 48px rgba(255,66,181,.16);--overlay:rgba(6,2,10,.76);
+  --badge-work:#ff9ad5;--notice:#32173d;--notice-line:#ff42b5;
+  --body-pattern:radial-gradient(circle at 12% 10%,rgba(255,66,181,.15),transparent 24%),radial-gradient(circle at 88% 16%,rgba(80,245,179,.10),transparent 23%),radial-gradient(circle at 60% 90%,rgba(143,85,255,.14),transparent 28%);
 }
-html[data-theme="espresso"] .ledgerHero{background:linear-gradient(135deg,#2d211b,#4a3328);border:1px solid #211712}
-html[data-theme="espresso"] .ledgerHero:before{background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 6px)}
-html[data-theme="espresso"] .ledgerHero:after{border-color:rgba(211,174,127,.16)}
-html[data-theme="espresso"] .heroMain h1{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.06em}
-html[data-theme="espresso"] .tabs{border-color:#241913}
-html[data-theme="espresso"] .tabs button.active{background:#b77750}
+html[data-theme="fae"] .ledgerHero{background:linear-gradient(135deg,#f20b8f 0%,#9638e8 53%,#23c98b 100%);border:0}
+html[data-theme="fae"][data-mode="dark"] .ledgerHero{background:linear-gradient(135deg,#5a0c69 0%,#a51678 48%,#096a56 100%)}
+html[data-theme="fae"] .ledgerHero:before{background-image:radial-gradient(circle,rgba(255,255,255,.38) 0 1px,transparent 1.5px);background-size:22px 22px}
+html[data-theme="fae"] .ledgerHero:after{width:170px;height:170px;border:26px solid rgba(255,255,255,.12);right:-55px;top:-32px}
+html[data-theme="fae"] .heroDecor:before{content:"✦";position:absolute;right:88px;top:48px;font-size:28px;color:#fff5b7;transform:rotate(13deg)}
+html[data-theme="fae"] .heroDecor:after{content:"✧  ✦  ✧";position:absolute;left:20px;bottom:52px;font-size:13px;letter-spacing:8px;color:rgba(255,255,255,.65)}
+html[data-theme="fae"] .decorA{width:76px;height:76px;border:2px solid rgba(255,255,255,.24);border-radius:50% 10% 50% 10%;right:12px;bottom:-18px;transform:rotate(28deg)}
+html[data-theme="fae"] .clockMark{background:rgba(255,255,255,.18);backdrop-filter:blur(4px);border-color:rgba(255,255,255,.5);color:#fff9b8}
+html[data-theme="fae"] .tabs button.active{background:linear-gradient(135deg,#f20b8f,#8b44ff);color:white}
 
-/* 4 — Electric Shift: punchy, modern, high contrast */
-html[data-theme="electric"]{
-  --bg:#e9ebf1;--card:#f9faff;--text:#111729;--muted:#68708a;--line:#cbd0dd;--accent:#ff5c35;--accent-dark:#d43f1f;--cream:#f2f3f8;--black:#111729;--soft:#e2e6f0;
-  --green:#d7ead9;--greenText:#315b3b;--red:#f3d9d8;--redText:#893c43;--blue:#d9e4ff;--blueText:#234e9a;--yellow:#f1e3ae;--yellowText:#6d5820;--field:#ffffff;--work:#ffe1d8;--offbg:#e5e7ed;--ice:#cdd9ff;--nav:#101729;
-  --card-radius:8px;--control-radius:8px;--day-radius:7px;--nav-radius:10px;--card-shadow:5px 5px 0 #c9ceda;--hero-shadow:8px 8px 0 #5577ff;
-  --body-pattern:linear-gradient(135deg,rgba(85,119,255,.07) 25%,transparent 25%) 0 0/32px 32px;--body-size:32px 32px;--hero-fg:#fff;--hero-muted:#cad3ff;--hero-eye:#8eabff;--hero-rule:#ffb19e;
-  --stat1:#d9e2ff;--stat2:#ece1c8;--stat3:#ddedda;--stat4:#f4dcd7;--bar-bg:#d6dae5;--bar-end:#5577ff;--nav-fg:#aeb9d5;--overlay:rgba(11,16,34,.62);--badge-work:#b7351f;--notice:#eef0f8;--notice-line:#5577ff;
+/* DRAGON EMBER — fire, garnet, molten gold */
+html[data-theme="dragon"][data-mode="light"]{
+  --bg:#fff0df;--card:#fff9ef;--text:#351315;--muted:#825d57;--line:#e5b7a0;--accent:#ff3b0a;--accent-dark:#b91e08;
+  --cream:#fff0df;--black:#321214;--soft:#f7d7c3;--green:#d9efcc;--greenText:#3c642f;--red:#ffd2c7;--redText:#8e2a1c;
+  --blue:#dce9f6;--blueText:#365f86;--yellow:#ffe18b;--yellowText:#6f4a00;--field:#fffdfa;--work:#ffd4c5;--offbg:#efe6df;--ice:#d9e6ef;--nav:#3b1117;
+  --stat1:#e6e0f4;--stat2:#ffe1a9;--stat3:#ddeccf;--stat4:#ffc9b8;--bar-bg:#edd1c3;--bar-end:#ffc21a;--nav-fg:#f2d5d0;
+  --card-shadow:0 12px 30px rgba(127,49,21,.13);--hero-shadow:0 17px 0 rgba(131,22,13,.18);--overlay:rgba(52,13,14,.56);
+  --badge-work:#a92413;--notice:#fff0e3;--notice-line:#ff5a1f;
+  --body-pattern:radial-gradient(circle at 5% 8%,rgba(255,59,10,.11),transparent 22%),linear-gradient(135deg,rgba(255,185,22,.07) 25%,transparent 25%) 0 0/30px 30px;
 }
-html[data-theme="electric"] .ledgerHero{background:linear-gradient(120deg,#101729 0 72%,#5577ff 72%);border:0}
-html[data-theme="electric"] .ledgerHero:before{background-image:linear-gradient(90deg,transparent 0 87%,rgba(255,255,255,.13) 87% 89%,transparent 89%);background-size:42px 100%}
-html[data-theme="electric"] .ledgerHero:after{border-color:rgba(255,92,53,.25);right:-75px}
-html[data-theme="electric"] .clockMark{background:#ff5c35;border:0;color:white;border-radius:10px;transform:rotate(4deg)}
-html[data-theme="electric"] .stamp{border-radius:8px;border-color:#5577ff;background:#5577ff;color:#fff}
-html[data-theme="electric"] .tabs button.active{background:#5577ff}
-html[data-theme="electric"] .sectionKicker{color:#3155dd}
-
-/* 5 — Sunday Paper: calm editorial newspaper */
-html[data-theme="paper"]{
-  --bg:#f3f0e8;--card:#fffdf7;--text:#28362c;--muted:#74786e;--line:#d6d1c4;--accent:#c96e45;--accent-dark:#9e4c2f;--cream:#f4efe4;--black:#2e3b31;--soft:#e9e6dc;
-  --green:#dfe8d3;--greenText:#425a38;--red:#efddd5;--redText:#81483a;--blue:#dde7e4;--blueText:#47625b;--yellow:#ede4bd;--yellowText:#6f6229;--field:#fffefa;--work:#f4ded2;--offbg:#ebe8e0;--ice:#d6e2de;--nav:#334337;
-  --card-radius:0px;--control-radius:0px;--day-radius:0px;--nav-radius:0px;--card-shadow:none;--hero-shadow:none;
-  --body-pattern:repeating-linear-gradient(0deg,rgba(46,59,49,.025) 0 1px,transparent 1px 4px);--body-size:auto;--hero-fg:#27362b;--hero-muted:#59675d;--hero-eye:#6e7e70;--hero-rule:#9b5537;
-  --stat1:#e4e9df;--stat2:#efe9d9;--stat3:#e1eadb;--stat4:#eee0d8;--bar-bg:#d8d3c8;--bar-end:#718975;--nav-fg:#dbe3da;--overlay:rgba(37,49,41,.48);--badge-work:#934c31;--notice:#f0ece0;--notice-line:#8b9a85;
+html[data-theme="dragon"][data-mode="dark"]{
+  --bg:#130708;--card:#251011;--text:#fff2e8;--muted:#cba99a;--line:#59302d;--accent:#ff5a1f;--accent-dark:#bd250c;
+  --cream:#2c1310;--black:#fff2e8;--soft:#351817;--green:#29442b;--greenText:#b2e3a3;--red:#51201d;--redText:#ffb0a0;
+  --blue:#203747;--blueText:#a9d8f2;--yellow:#594319;--yellowText:#ffd76c;--field:#1c0b0d;--work:#4d1d18;--offbg:#302527;--ice:#203843;--nav:#090405;
+  --stat1:#35263c;--stat2:#4e3516;--stat3:#283e28;--stat4:#4d201b;--bar-bg:#3a2422;--bar-end:#ffc21a;--nav-fg:#cbb2ad;
+  --card-shadow:0 14px 34px rgba(0,0,0,.35);--hero-shadow:0 18px 46px rgba(255,67,20,.17);--overlay:rgba(5,1,1,.78);
+  --badge-work:#ffb09c;--notice:#321513;--notice-line:#ff5a1f;
+  --body-pattern:radial-gradient(circle at 8% 10%,rgba(255,75,20,.12),transparent 22%),radial-gradient(circle at 92% 18%,rgba(255,194,26,.07),transparent 24%);
 }
-html[data-theme="paper"] .ledgerHero{background:#f7f2e7;border-width:2px 0;border-color:#344438;margin-top:4px}
-html[data-theme="paper"] .ledgerHero:before{background-image:linear-gradient(#344438,#344438);background-size:100% 1px;background-repeat:no-repeat;background-position:0 52px}
-html[data-theme="paper"] .ledgerHero:after{border:2px solid rgba(51,68,55,.24);width:92px;height:92px;right:12px;top:66px}
-html[data-theme="paper"] .heroMain h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.07em}
-html[data-theme="paper"] .clockMark{border:0;color:#c96e45;font-family:Georgia,serif}
-html[data-theme="paper"] .stamp{border:1px solid #344438;border-radius:0}
-html[data-theme="paper"] .card{border-width:1px 0}.tabs{border-radius:var(--nav-radius)}
-html[data-theme="paper"] .tabs button.active{background:#c96e45}
-html[data-theme="paper"] .stat{border-left:2px solid var(--black)}
+html[data-theme="dragon"] .ledgerHero{background:linear-gradient(125deg,#5a0813 0%,#d31b0b 45%,#ff6a00 72%,#ffb000 115%);border:0}
+html[data-theme="dragon"][data-mode="dark"] .ledgerHero{background:linear-gradient(125deg,#180407,#650814 48%,#ad2209 78%,#ff6200 120%)}
+html[data-theme="dragon"] .ledgerHero:before{background-image:linear-gradient(135deg,transparent 0 46%,rgba(255,255,255,.08) 46% 49%,transparent 49% 100%);background-size:34px 34px}
+html[data-theme="dragon"] .ledgerHero:after{width:210px;height:210px;border:36px solid rgba(255,204,79,.12);border-radius:48% 52% 44% 56%;right:-100px;top:-38px;transform:rotate(18deg)}
+html[data-theme="dragon"] .heroDecor:before{content:"◆";position:absolute;right:82px;top:38px;font-size:25px;color:#ffd553;text-shadow:0 0 20px rgba(255,209,67,.65)}
+html[data-theme="dragon"] .heroDecor:after{content:"▲ ▲ ▲";position:absolute;left:20px;bottom:50px;font-size:9px;letter-spacing:7px;color:rgba(255,222,149,.7)}
+html[data-theme="dragon"] .decorA{right:21px;bottom:18px;width:62px;height:62px;background:linear-gradient(135deg,#ffdb54,#ff4b16);clip-path:polygon(50% 0,72% 36%,100% 52%,68% 65%,50% 100%,31% 65%,0 52%,28% 35%);opacity:.55}
+html[data-theme="dragon"] .clockMark{background:#ffb20e;border:0;color:#4b1010;border-radius:14px;transform:rotate(5deg)}
+html[data-theme="dragon"] .tabs button.active{background:linear-gradient(135deg,#ff3b0a,#d30d42);color:white}
 
-/* 6 — After Hours: dark plum, pearl, neon blush */
-html[data-theme="afterhours"]{
-  --bg:#171522;--card:#242130;--text:#f5edf6;--muted:#aaa0b5;--line:#3b3548;--accent:#ff7896;--accent-dark:#c94c6d;--cream:#2a2534;--black:#f5edf6;--soft:#302b3d;
-  --green:#2f493c;--greenText:#b9e3c8;--red:#513039;--redText:#ffc0ca;--blue:#293c55;--blueText:#c9ddff;--yellow:#4d4328;--yellowText:#f0dc95;--field:#1d1a28;--work:#4a2e3a;--offbg:#302d39;--ice:#50648a;--nav:#0f0d16;
-  --card-radius:20px;--control-radius:13px;--day-radius:12px;--nav-radius:22px;--card-shadow:0 15px 36px rgba(0,0,0,.26);--hero-shadow:0 18px 45px rgba(0,0,0,.35);
-  --body-pattern:radial-gradient(circle at 20% 4%,rgba(141,108,255,.14),transparent 27%),radial-gradient(circle at 90% 30%,rgba(255,120,150,.12),transparent 28%);--body-size:auto;--hero-fg:#fff4fb;--hero-muted:#bdb1cb;--hero-eye:#cfbfff;--hero-rule:#ffb2c4;
-  --stat1:#273650;--stat2:#453b35;--stat3:#2e453c;--stat4:#4b303b;--bar-bg:#332e40;--bar-end:#8d6cff;--nav-fg:#9e94ad;--overlay:rgba(7,6,12,.76);--badge-work:#ffb0c2;--notice:#2b2738;--notice-line:#8d6cff;
+/* MOON COURT — violet, electric pink, celestial cyan */
+html[data-theme="moon"][data-mode="light"]{
+  --bg:#f2efff;--card:#fcfaff;--text:#211548;--muted:#71698d;--line:#d8d0f0;--accent:#7357ff;--accent-dark:#5233d0;
+  --cream:#f4f0ff;--black:#211548;--soft:#e9e2ff;--green:#d9f2e5;--greenText:#32634d;--red:#f7dce8;--redText:#8a3d62;
+  --blue:#d7f4ff;--blueText:#28627b;--yellow:#f3e5aa;--yellowText:#6f5a15;--field:#ffffff;--work:#eadfff;--offbg:#e9e6ef;--ice:#cfefff;--nav:#19113e;
+  --stat1:#e4e0ff;--stat2:#ffdced;--stat3:#d9eee7;--stat4:#fff0b7;--bar-bg:#dcd7ee;--bar-end:#ff4fb0;--nav-fg:#c9c2e6;
+  --card-shadow:0 12px 32px rgba(60,44,126,.12);--hero-shadow:0 18px 46px rgba(72,49,169,.24);--overlay:rgba(25,17,62,.54);
+  --badge-work:#5f45c9;--notice:#f2edff;--notice-line:#7357ff;
+  --body-pattern:radial-gradient(circle at 8% 9%,rgba(115,87,255,.11),transparent 24%),radial-gradient(circle at 92% 16%,rgba(255,79,176,.10),transparent 22%),radial-gradient(circle at 52% 95%,rgba(64,211,255,.10),transparent 26%);
 }
-html[data-theme="afterhours"] .ledgerHero{background:linear-gradient(140deg,#0f0d16,#29233b 65%,#3c2a43);border:1px solid #393148}
-html[data-theme="afterhours"] .ledgerHero:before{background-image:radial-gradient(circle,rgba(255,255,255,.34) 0 1px,transparent 1.3px);background-size:26px 26px}
-html[data-theme="afterhours"] .ledgerHero:after{border-color:rgba(141,108,255,.18)}
-html[data-theme="afterhours"] .clockMark{border-color:#8d6cff;color:#ff7896;box-shadow:0 0 22px rgba(141,108,255,.22)}
-html[data-theme="afterhours"] .tabs{border-color:#2b2636;box-shadow:0 14px 38px rgba(0,0,0,.45)}
-html[data-theme="afterhours"] .tabs button.active{background:linear-gradient(135deg,#8d6cff,#ff7896)}
-html[data-theme="afterhours"] input,html[data-theme="afterhours"] select,html[data-theme="afterhours"] textarea,html[data-theme="afterhours"] button{color:var(--text)}
-html[data-theme="afterhours"] select option{background:#242130;color:#f5edf6}
-html[data-theme="afterhours"] .stat{border-left:0}
-
-
-/* ---------- HEADER v13 · sechs wirklich eigene Looks ---------- */
-.ledgerHero{isolation:isolate;transition:background .25s ease,border-radius .25s ease,box-shadow .25s ease,transform .25s ease}
-.heroDecor{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.heroDecor span{position:absolute;display:block}.heroCopy{min-width:0;position:relative;z-index:2}.heroTop,.heroMain,.heroRule{position:relative;z-index:3}
-#heroWord{white-space:nowrap}
-
-/* Time Ledger — Stempelkarte / Arbeitsjournal */
-html[data-theme="ledger"] .ledgerHero{border-radius:4px;background:#17282b;box-shadow:7px 7px 0 #e76043;padding:18px 18px 15px}
-html[data-theme="ledger"] .heroDecor .decorA{width:180px;height:180px;border:26px solid rgba(185,211,208,.11);border-radius:50%;right:-75px;top:12px}
-html[data-theme="ledger"] .heroDecor .decorB{left:0;right:0;bottom:48px;height:1px;background:rgba(255,255,255,.08)}
-html[data-theme="ledger"] .heroDecor .decorC{width:5px;height:38px;background:#e76043;left:18px;bottom:13px}
-html[data-theme="ledger"] .heroMain h1{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-size:64px;font-weight:950;letter-spacing:-.06em}
-html[data-theme="ledger"] .clockMark{border-radius:50%;transform:rotate(-10deg)}
-
-/* Soft Studio — Editorial pastel card */
-html[data-theme="studio"] .ledgerHero{min-height:198px;border:1px solid #ded5e8;border-radius:28px;background:linear-gradient(135deg,#efe8f8 0%,#f8edf2 50%,#e9f1fb 100%);box-shadow:0 18px 35px rgba(72,60,92,.12);padding:20px 20px 16px;color:#34344b}
-html[data-theme="studio"] .ledgerHero:before,html[data-theme="studio"] .ledgerHero:after{content:none}
-html[data-theme="studio"] .heroDecor .decorA{width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.55);right:-25px;top:-35px}
-html[data-theme="studio"] .heroDecor .decorB{width:72px;height:72px;border-radius:24px;background:rgba(239,127,145,.12);right:38px;bottom:26px;transform:rotate(18deg)}
-html[data-theme="studio"] .heroDecor .decorC{width:88px;height:20px;border-radius:999px;background:rgba(169,190,233,.28);left:20px;bottom:20px}
-html[data-theme="studio"] .eyebrow{color:#7d7195}html[data-theme="studio"] .heroMain{align-items:center}
-html[data-theme="studio"] .heroMain h1{font-family:ui-rounded,"SF Pro Rounded","Avenir Next",sans-serif;font-size:58px;letter-spacing:-.07em;font-weight:850;color:#34344b;text-shadow:none}
-html[data-theme="studio"] .heroMain p{font-size:12px;color:#7a748a;letter-spacing:.015em}
-html[data-theme="studio"] .stamp{width:auto;min-width:58px;height:34px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.65);border:1px solid rgba(90,82,115,.17);color:#69617d}
-html[data-theme="studio"] .clockMark{width:58px;height:58px;border-radius:18px;background:#fff7fb;border:1px solid #eadde8;color:#ef7f91;box-shadow:0 8px 20px rgba(92,72,99,.08);transform:rotate(5deg);font-size:26px}
-html[data-theme="studio"] .heroRule{border-top:0;padding-top:6px;margin-top:18px;color:#6f6882}html[data-theme="studio"] .heroRule span:first-child{letter-spacing:.08em}
-
-/* Espresso Office — coffee ticket / brass */
-html[data-theme="espresso"] .ledgerHero{min-height:205px;border:1px solid #211712;border-radius:18px;background:linear-gradient(145deg,#2f211a 0%,#4a3328 70%,#5b3a2b 100%);box-shadow:0 16px 34px rgba(48,31,22,.24);padding:18px 18px 15px;color:#f7ead7}
-html[data-theme="espresso"] .ledgerHero:before,html[data-theme="espresso"] .ledgerHero:after{content:none}
-html[data-theme="espresso"] .heroDecor .decorA{width:122px;height:122px;border:18px solid rgba(215,179,141,.12);border-radius:50%;right:20px;top:35px}
-html[data-theme="espresso"] .heroDecor .decorB{width:96px;height:54px;border:1px solid rgba(247,234,215,.15);right:-15px;bottom:22px;transform:rotate(-8deg)}
-html[data-theme="espresso"] .heroDecor .decorC{left:18px;top:58px;width:52px;height:2px;background:#b77750;box-shadow:0 7px 0 #b77750,0 14px 0 #b77750}
-html[data-theme="espresso"] .eyebrow{color:#d7b38d}html[data-theme="espresso"] .heroMain{align-items:flex-end}
-html[data-theme="espresso"] .heroMain h1{font-family:Georgia,"Times New Roman",serif;font-size:58px;letter-spacing:-.075em;font-weight:700;color:#fff2dd}
-html[data-theme="espresso"] .heroMain p{font-family:Georgia,"Times New Roman",serif;color:#d8c4ae;font-style:italic;letter-spacing:0;font-size:12px}
-html[data-theme="espresso"] .stamp{border-radius:3px;width:52px;height:38px;border:1px solid #b77750;color:#f1d7ba;background:rgba(0,0,0,.08)}
-html[data-theme="espresso"] .clockMark{width:58px;height:58px;border:1px solid #b77750;color:#d7b38d;border-radius:50%;background:rgba(0,0,0,.10);font-size:32px;transform:none}
-html[data-theme="espresso"] .heroRule{border-top-color:rgba(247,234,215,.18);color:#d7b38d}
-
-/* Electric Shift — angled control panel */
-html[data-theme="electric"] .ledgerHero{min-height:196px;border:0;border-radius:14px;background:linear-gradient(115deg,#101729 0 67%,#5577ff 67% 78%,#ff5c35 78% 100%);box-shadow:10px 10px 0 rgba(16,23,41,.16);padding:18px 18px 14px;color:white;clip-path:polygon(0 0,100% 0,100% 88%,94% 100%,0 100%)}
-html[data-theme="electric"] .ledgerHero:before,html[data-theme="electric"] .ledgerHero:after{content:none}
-html[data-theme="electric"] .heroDecor .decorA{left:18px;right:18px;top:53px;height:1px;background:rgba(255,255,255,.14)}
-html[data-theme="electric"] .heroDecor .decorB{width:90px;height:90px;border:1px solid rgba(255,255,255,.18);right:50px;bottom:-28px;transform:rotate(45deg)}
-html[data-theme="electric"] .heroDecor .decorC{width:42px;height:6px;background:#ff5c35;left:18px;bottom:18px;box-shadow:49px 0 0 #5577ff}
-html[data-theme="electric"] .eyebrow{color:#9db2ff}html[data-theme="electric"] .heroMain h1{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-size:66px;letter-spacing:-.07em;font-style:italic;font-weight:950}
-html[data-theme="electric"] .heroMain p{color:#c9d5ff;text-transform:uppercase;font:800 10px/1.4 ui-monospace,monospace;letter-spacing:.12em}
-html[data-theme="electric"] .stamp{border-radius:5px;width:42px;height:42px;border:0;background:#5577ff;color:#fff;box-shadow:4px 4px 0 #0a0f1e}
-html[data-theme="electric"] .clockMark{width:58px;height:58px;border:0;border-radius:9px;background:#ff5c35;color:white;box-shadow:5px 5px 0 #0a0f1e;transform:rotate(3deg);font-size:30px}
-html[data-theme="electric"] .heroRule{border-top:0;color:#bfcaff;padding-top:0;margin-top:20px}html[data-theme="electric"] #heroMonthLabel{color:#fff}
-
-/* Sunday Paper — newspaper masthead */
-html[data-theme="paper"] .ledgerHero{min-height:210px;border:0;border-top:3px solid #344438;border-bottom:3px double #344438;border-radius:0;background:#f7f2e7;box-shadow:none;padding:13px 4px 12px;color:#344438}
-html[data-theme="paper"] .ledgerHero:before,html[data-theme="paper"] .ledgerHero:after{content:none}
-html[data-theme="paper"] .heroDecor .decorA{left:4px;right:4px;top:48px;height:1px;background:#344438}
-html[data-theme="paper"] .heroDecor .decorB{left:4px;right:4px;bottom:42px;height:1px;background:#344438}
-html[data-theme="paper"] .heroDecor .decorC{width:64px;height:64px;border:2px solid rgba(52,68,56,.30);border-radius:50%;right:18px;top:74px}
-html[data-theme="paper"] .heroTop{padding:0 8px 9px}html[data-theme="paper"] .eyebrow{color:#344438;font-family:Georgia,serif;letter-spacing:.12em}
-html[data-theme="paper"] .heroMain{padding:11px 8px 8px;align-items:center}html[data-theme="paper"] .heroMain h1{font-family:Didot,"Bodoni 72",Georgia,serif;font-size:64px;font-weight:700;letter-spacing:-.07em;color:#344438}
-html[data-theme="paper"] .heroMain p{font-family:Georgia,serif;font-size:11px;color:#6c766d;letter-spacing:.02em}
-html[data-theme="paper"] .stamp{border-radius:0;width:auto;height:30px;padding:0 8px;border:1px solid #344438;color:#344438;background:transparent;font-family:Georgia,serif}
-html[data-theme="paper"] .clockMark{width:48px;height:48px;border:0;border-radius:0;background:transparent;color:#c96e45;transform:none;font-size:28px}
-html[data-theme="paper"] .heroRule{padding:10px 8px 0;margin-top:9px;border-top:1px solid #344438;color:#344438;font-family:Georgia,serif;letter-spacing:.06em}
-
-/* After Hours — neon lounge / moonlight */
-html[data-theme="afterhours"] .ledgerHero{min-height:202px;border:1px solid #3b3548;border-radius:26px;background:radial-gradient(circle at 78% 22%,rgba(141,108,255,.24),transparent 27%),radial-gradient(circle at 92% 80%,rgba(255,120,150,.18),transparent 30%),linear-gradient(145deg,#0f0d16,#211a32 58%,#35213c);box-shadow:0 20px 42px rgba(0,0,0,.36);padding:19px 19px 15px;color:#fff4fb}
-html[data-theme="afterhours"] .ledgerHero:before,html[data-theme="afterhours"] .ledgerHero:after{content:none}
-html[data-theme="afterhours"] .heroDecor .decorA{width:94px;height:94px;border-radius:50%;border:1px solid rgba(207,191,255,.28);right:22px;top:64px;box-shadow:0 0 30px rgba(141,108,255,.14)}
-html[data-theme="afterhours"] .heroDecor .decorB{width:6px;height:6px;border-radius:50%;background:#fff;left:62%;top:32px;box-shadow:43px 20px 0 rgba(255,255,255,.8),-25px 45px 0 rgba(255,255,255,.45),62px 68px 0 rgba(255,255,255,.5),-48px 92px 0 rgba(255,255,255,.3)}
-html[data-theme="afterhours"] .heroDecor .decorC{width:86px;height:2px;background:linear-gradient(90deg,#8d6cff,#ff7896);left:19px;bottom:18px;box-shadow:0 0 12px rgba(255,120,150,.7)}
-html[data-theme="afterhours"] .eyebrow{color:#cfbfff}html[data-theme="afterhours"] .heroMain h1{font-family:Didot,"Bodoni 72",Georgia,serif;font-size:62px;font-weight:700;letter-spacing:-.055em;color:#fff4fb;text-shadow:0 0 18px rgba(141,108,255,.12)}
-html[data-theme="afterhours"] .heroMain p{color:#c4b8ce;font-size:11px;letter-spacing:.025em}
-html[data-theme="afterhours"] .stamp{border-radius:999px;width:44px;height:44px;border:1px solid #8d6cff;background:rgba(141,108,255,.10);color:#ffb2c4;box-shadow:0 0 16px rgba(141,108,255,.14)}
-html[data-theme="afterhours"] .clockMark{width:58px;height:58px;border:1px solid #8d6cff;border-radius:50%;background:rgba(255,255,255,.03);color:#ff7896;box-shadow:0 0 24px rgba(141,108,255,.22);transform:none;font-size:30px}
-html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);color:#c6b9d4}
-
-@media(max-width:390px){
-  html[data-theme="ledger"] .heroMain h1,html[data-theme="electric"] .heroMain h1{font-size:58px}
-  html[data-theme="studio"] .heroMain h1,html[data-theme="espresso"] .heroMain h1,html[data-theme="afterhours"] .heroMain h1{font-size:54px}
-  html[data-theme="paper"] .heroMain h1{font-size:58px}
-  .heroMain p{max-width:230px}
+html[data-theme="moon"][data-mode="dark"]{
+  --bg:#0d091d;--card:#18112b;--text:#f9f4ff;--muted:#b9acd3;--line:#392d58;--accent:#9b7cff;--accent-dark:#6c4ee8;
+  --cream:#1e1632;--black:#f9f4ff;--soft:#251a3a;--green:#203e35;--greenText:#9ee7c7;--red:#442033;--redText:#ffabd1;
+  --blue:#19384b;--blueText:#99e2ff;--yellow:#4b401b;--yellowText:#ffe27c;--field:#120d22;--work:#342051;--offbg:#282232;--ice:#17394c;--nav:#07050f;
+  --stat1:#2d2350;--stat2:#452039;--stat3:#1e3b34;--stat4:#443819;--bar-bg:#302645;--bar-end:#ff4fb0;--nav-fg:#b7acd2;
+  --card-shadow:0 14px 36px rgba(0,0,0,.35);--hero-shadow:0 20px 50px rgba(123,93,255,.19);--overlay:rgba(5,3,13,.78);
+  --badge-work:#c1afff;--notice:#211735;--notice-line:#9b7cff;
+  --body-pattern:radial-gradient(circle at 8% 12%,rgba(144,112,255,.15),transparent 24%),radial-gradient(circle at 91% 17%,rgba(255,79,176,.10),transparent 22%),radial-gradient(circle at 55% 92%,rgba(59,205,255,.08),transparent 25%);
 }
+html[data-theme="moon"] .ledgerHero{background:linear-gradient(135deg,#1d1455 0%,#6044d8 48%,#d12b99 80%,#45c9ed 130%);border:1px solid rgba(143,118,255,.35)}
+html[data-theme="moon"][data-mode="dark"] .ledgerHero{background:linear-gradient(135deg,#09061b 0%,#2c196c 50%,#76155e 82%,#136b82 135%)}
+html[data-theme="moon"] .ledgerHero:before{background-image:radial-gradient(circle,rgba(255,255,255,.55) 0 1px,transparent 1.2px);background-size:28px 28px}
+html[data-theme="moon"] .ledgerHero:after{width:145px;height:145px;border:20px solid rgba(255,255,255,.13);right:-32px;top:20px}
+html[data-theme="moon"] .heroDecor:before{content:"☾";position:absolute;right:71px;top:34px;font-size:50px;color:#fff4b8;transform:rotate(-13deg)}
+html[data-theme="moon"] .heroDecor:after{content:"✦  ·  ✧  ·  ✦";position:absolute;left:18px;bottom:50px;font-size:12px;letter-spacing:6px;color:rgba(211,239,255,.75)}
+html[data-theme="moon"] .clockMark{background:rgba(10,6,32,.30);border-color:rgba(255,255,255,.45);color:#aeeeff;box-shadow:0 0 22px rgba(96,214,255,.18)}
+html[data-theme="moon"] .tabs button.active{background:linear-gradient(135deg,#7558ff,#e643ae);color:#fff}
 
-/* Theme picker */
-.designCard .cardTitle{margin-bottom:12px}.themeGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.themeChoice{position:relative;min-height:105px;padding:10px;text-align:left;border:1px solid var(--line);background:var(--field);border-radius:14px;box-shadow:none;overflow:hidden}.themeChoice.active{outline:2px solid var(--accent);outline-offset:1px}.themeChoice b{display:block;margin-top:9px;font-size:12px}.themeChoice small{display:block;color:var(--muted);font-size:9px;margin-top:2px;line-height:1.25}.themeMini{height:48px;border-radius:9px;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.08)}.themeMini:before{content:"";position:absolute;left:8px;right:8px;top:8px;height:13px;border-radius:4px;background:var(--m2)}.themeMini:after{content:"";position:absolute;left:8px;bottom:7px;width:42%;height:17px;border-radius:4px;background:var(--m3);box-shadow:46px 0 0 var(--m4)}.themeChoice[data-theme-choice="ledger"]{--m1:#ebe5da;--m2:#18292c;--m3:#e76043;--m4:#b9d3d0}.themeChoice[data-theme-choice="studio"]{--m1:#f2eff7;--m2:#e4d8f2;--m3:#ef7f91;--m4:#a9bee9}.themeChoice[data-theme-choice="espresso"]{--m1:#e9dfd3;--m2:#35271f;--m3:#a5543a;--m4:#d7b38d}.themeChoice[data-theme-choice="electric"]{--m1:#e9ebf1;--m2:#101729;--m3:#ff5c35;--m4:#5577ff}.themeChoice[data-theme-choice="paper"]{--m1:#f3f0e8;--m2:#344438;--m3:#c96e45;--m4:#dfe8d3}.themeChoice[data-theme-choice="afterhours"]{--m1:#171522;--m2:#29233b;--m3:#ff7896;--m4:#8d6cff}.themeMini{background:var(--m1)}
-.themeCurrent{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--soft);padding:9px 10px;border-radius:10px;margin:10px 0 2px}.themeCurrent b{font-size:12px}.themeCurrent span{font-size:10px;color:var(--muted)}
-@media(max-width:360px){.themeGrid{grid-template-columns:1fr}.themeChoice{min-height:92px}}
+/* SPELLBOUND LIBRARY — emerald, amethyst, enchanted gold */
+html[data-theme="spellbound"][data-mode="light"]{
+  --bg:#edf4ef;--card:#fffaf0;--text:#17342f;--muted:#60756d;--line:#c9d8cf;--accent:#7c2cff;--accent-dark:#5316c0;
+  --cream:#faf3e4;--black:#17342f;--soft:#e2ece5;--green:#d4efd9;--greenText:#315f38;--red:#f0d8dc;--redText:#82404b;
+  --blue:#d9e9ee;--blueText:#3b6570;--yellow:#f9e4a2;--yellowText:#70540a;--field:#fffdf7;--work:#eadcff;--offbg:#e8e9e5;--ice:#d7ecec;--nav:#103c35;
+  --stat1:#dce9e2;--stat2:#eadcff;--stat3:#d6efd9;--stat4:#f8e6aa;--bar-bg:#d0ddd5;--bar-end:#e2a817;--nav-fg:#c7ddd4;
+  --card-shadow:0 11px 28px rgba(25,75,60,.12);--hero-shadow:0 14px 0 rgba(45,96,75,.14);--overlay:rgba(12,48,40,.56);
+  --badge-work:#6321be;--notice:#f4f0df;--notice-line:#d29a10;
+  --body-pattern:linear-gradient(rgba(16,60,53,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(16,60,53,.025) 1px,transparent 1px);--body-size:26px 26px;
+}
+html[data-theme="spellbound"][data-mode="dark"]{
+  --bg:#071411;--card:#10241f;--text:#f8efd8;--muted:#a8c0b5;--line:#2f4c43;--accent:#b685ff;--accent-dark:#7846d4;
+  --cream:#172921;--black:#f8efd8;--soft:#183129;--green:#244534;--greenText:#a9e9bd;--red:#47262a;--redText:#f7b2bb;
+  --blue:#1b3840;--blueText:#a3dbe7;--yellow:#4a3b16;--yellowText:#ffd96b;--field:#0b1b17;--work:#33224a;--offbg:#26302d;--ice:#18383a;--nav:#040b09;
+  --stat1:#1d3b32;--stat2:#35234d;--stat3:#21422f;--stat4:#493a17;--bar-bg:#263c35;--bar-end:#ffc84d;--nav-fg:#a9c6ba;
+  --card-shadow:0 14px 36px rgba(0,0,0,.34);--hero-shadow:0 18px 44px rgba(158,105,255,.13);--overlay:rgba(2,8,6,.78);
+  --badge-work:#cfb4ff;--notice:#1c3028;--notice-line:#ffc84d;
+  --body-pattern:linear-gradient(rgba(210,191,130,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(210,191,130,.02) 1px,transparent 1px);--body-size:25px 25px;
+}
+html[data-theme="spellbound"] .ledgerHero{background:linear-gradient(125deg,#0d4b3f 0%,#176c58 38%,#592aa6 78%,#c78b0f 132%);border:1px solid rgba(224,183,68,.38)}
+html[data-theme="spellbound"][data-mode="dark"] .ledgerHero{background:linear-gradient(125deg,#05130f 0%,#103c32 42%,#341b64 80%,#82600a 138%)}
+html[data-theme="spellbound"] .ledgerHero:before{background-image:linear-gradient(rgba(255,235,177,.10) 1px,transparent 1px);background-size:100% 30px}
+html[data-theme="spellbound"] .ledgerHero:after{width:112px;height:112px;border:2px solid rgba(255,226,142,.36);right:25px;top:60px;border-radius:8px;transform:rotate(9deg)}
+html[data-theme="spellbound"] .heroDecor:before{content:"✦";position:absolute;right:75px;top:33px;font-size:27px;color:#ffd86c}
+html[data-theme="spellbound"] .heroDecor:after{content:"❖  ✧  ❖";position:absolute;left:20px;bottom:49px;font-size:12px;letter-spacing:7px;color:rgba(255,230,167,.75)}
+html[data-theme="spellbound"] .decorA{right:42px;bottom:21px;width:75px;height:48px;border:1px solid rgba(255,232,172,.38);border-top:0;transform:skewY(-8deg)}
+html[data-theme="spellbound"] .heroMain h1{font-family:Georgia,"Iowan Old Style",serif;letter-spacing:-.06em}
+html[data-theme="spellbound"] .clockMark{border-color:rgba(255,224,135,.45);color:#ffd56a;background:rgba(5,28,23,.25)}
+html[data-theme="spellbound"] .tabs button.active{background:linear-gradient(135deg,#742fd8,#b88716);color:#fff}
+
+/* Design picker — only the four fantasy worlds */
+.designCard .cardTitle{margin-bottom:12px}
+.themeGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.themeChoice{position:relative;min-height:116px;padding:10px;text-align:left;border:1px solid var(--line);background:var(--field);border-radius:17px;box-shadow:none;overflow:hidden}
+.themeChoice.active{outline:3px solid var(--accent);outline-offset:1px}
+.themeChoice b{display:block;margin-top:9px;font-size:12px}.themeChoice small{display:block;color:var(--muted);font-size:9px;margin-top:3px;line-height:1.3}
+.themeMini{height:55px;border-radius:11px;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.10);background:linear-gradient(90deg,var(--mLight) 0 50%,var(--mDark) 50% 100%)}
+.themeMini:before{content:"";position:absolute;left:8px;right:8px;top:8px;height:13px;border-radius:6px;background:linear-gradient(90deg,var(--mAccent) 0 48%,var(--mAccent2) 52% 100%)}
+.themeMini:after{content:"☀︎";position:absolute;left:10px;bottom:7px;font-size:15px;color:var(--mInk);text-shadow:46px 0 0 var(--mNightInk)}
+.themeChoice[data-theme-choice="fae"]{--mLight:#fff0f8;--mDark:#16091e;--mAccent:#f20b8f;--mAccent2:#23c98b;--mInk:#7d245d;--mNightInk:#ffe2f5}
+.themeChoice[data-theme-choice="dragon"]{--mLight:#fff0df;--mDark:#130708;--mAccent:#ff3b0a;--mAccent2:#ffc21a;--mInk:#812313;--mNightInk:#ffd8b5}
+.themeChoice[data-theme-choice="moon"]{--mLight:#f2efff;--mDark:#0d091d;--mAccent:#7357ff;--mAccent2:#ff4fb0;--mInk:#4d3aa6;--mNightInk:#d9d0ff}
+.themeChoice[data-theme-choice="spellbound"]{--mLight:#edf4ef;--mDark:#071411;--mAccent:#176c58;--mAccent2:#b685ff;--mInk:#275e51;--mNightInk:#d9f4e8}
+.themeCurrent{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--soft);padding:10px 11px;border-radius:12px;margin:11px 0 4px}.themeCurrent b{font-size:12px}.themeCurrent span{font-size:10px;color:var(--muted)}
+.modeRow{display:grid;grid-template-columns:1fr;gap:6px;margin-top:11px}.modeStatus{font-size:9px;color:var(--muted);line-height:1.35}
+@media(max-width:360px){.themeGrid{grid-template-columns:1fr}.themeChoice{min-height:102px}}
 
 
 /* ---------- DIENSTPLAN v11 · mobile Import-Vorschau ---------- */
@@ -511,18 +469,28 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
       <div class="sectionNote">Praktisch, wenn dein Gastro-Dienstplan in einem Monat ein anderes Soll vorgibt. Die automatische Berechnung bleibt sonst aktiv.</div>
     </div>
     <div class="card designCard">
-      <div class="sectionKicker">DESIGN · NACH LUST & LAUNE</div>
-      <div class="cardTitle"><div><b>Deine Stimmung</b><div class="muted">Ein Tipp wechselt sofort das komplette App-Design. Deine Zeiten bleiben natürlich unverändert.</div></div></div>
+      <div class="sectionKicker">DESIGN · FANTASY WORLDS</div>
+      <div class="cardTitle"><div><b>Deine Welt</b><div class="muted">Vier kräftige Fantasy-Designs – jedes mit eigener Tag- und Nachtversion.</div></div></div>
       <div class="themeGrid" id="themeGrid">
-        <button type="button" class="themeChoice" data-theme-choice="ledger"><div class="themeMini"></div><b>Time Ledger</b><small>Editorial · Stempelkarte</small></button>
-        <button type="button" class="themeChoice" data-theme-choice="studio"><div class="themeMini"></div><b>Soft Studio</b><small>Flieder · Powder · weich</small></button>
-        <button type="button" class="themeChoice" data-theme-choice="espresso"><div class="themeMini"></div><b>Espresso Office</b><small>Kaffee · Leder · warm</small></button>
-        <button type="button" class="themeChoice" data-theme-choice="electric"><div class="themeMini"></div><b>Electric Shift</b><small>Cobalt · Orange · bold</small></button>
-        <button type="button" class="themeChoice" data-theme-choice="paper"><div class="themeMini"></div><b>Sunday Paper</b><small>Editorial · Olive · Papier</small></button>
-        <button type="button" class="themeChoice" data-theme-choice="afterhours"><div class="themeMini"></div><b>After Hours</b><small>Plum · Blush · Nacht</small></button>
+        <button type="button" class="themeChoice" data-theme-choice="fae"><div class="themeMini"></div><b>Fae Garden</b><small>Hot Pink · Smaragd · Violett</small></button>
+        <button type="button" class="themeChoice" data-theme-choice="dragon"><div class="themeMini"></div><b>Dragon Ember</b><small>Feuerrot · Gold · Garnet</small></button>
+        <button type="button" class="themeChoice" data-theme-choice="moon"><div class="themeMini"></div><b>Moon Court</b><small>Violett · Pink · Celestial Blue</small></button>
+        <button type="button" class="themeChoice" data-theme-choice="spellbound"><div class="themeMini"></div><b>Spellbound Library</b><small>Smaragd · Amethyst · Zaubergold</small></button>
       </div>
-      <div class="themeCurrent"><div><b id="themeCurrentName">Time Ledger</b><div class="muted" id="themeCurrentDescription">Modernes Arbeitsjournal mit Stempelkarte.</div></div><span>AKTIV</span></div>
-      <label>Schriftart</label><select id="fontSelect"><option value="modern">Modern</option><option value="avenir">Avenir</option><option value="bookish">Bookish</option><option value="elegant">Elegant</option><option value="round">Rund</option><option value="typewriter">Schreibmaschine</option></select>
+      <div class="themeCurrent"><div><b id="themeCurrentName">Moon Court</b><div class="muted" id="themeCurrentDescription">Celestial Fantasy mit kräftigem Violett und Pink.</div></div><span>AKTIV</span></div>
+
+      <div class="modeRow">
+        <label>Tag / Dunkelmodus</label>
+        <select id="colorMode">
+          <option value="auto">Automatisch – wie dein Gerät</option>
+          <option value="light">Tag</option>
+          <option value="dark">Dunkel</option>
+        </select>
+        <div id="modeStatus" class="modeStatus">Automatisch passt sich an dein Gerät an.</div>
+      </div>
+
+      <label>Schriftart</label>
+      <select id="fontSelect"><option value="modern">Modern</option><option value="avenir">Avenir</option><option value="bookish">Bookish</option><option value="elegant">Elegant</option><option value="round">Rund</option><option value="typewriter">Schreibmaschine</option></select>
     </div>
     <div class="card">
       <div class="cardTitle"><b>Daten</b></div>
@@ -566,22 +534,47 @@ const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
 const monthKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}`;
 const today=new Date();
 const THEMES={
-  ledger:{label:'Time Ledger',brand:'TIME LEDGER',meta:'#18292c',desc:'Modernes Arbeitsjournal mit Stempelkarte.',heroWord:'ZEIT',heroSub:'Arbeitszeit · Urlaub · Krank',heroStamp:'08H',heroClock:'◷',heroRule:'Monthly work log'},
-  studio:{label:'Soft Studio',brand:'SOFT STUDIO',meta:'#e8ddf4',desc:'Sanft, hell und ruhig mit Flieder und Powder Blue.',heroWord:'ZEIT',heroSub:'Sanft geplant. Klar im Blick.',heroStamp:'SOFT',heroClock:'✦',heroRule:'Soft work journal'},
-  espresso:{label:'Espresso Office',brand:'ESPRESSO OFFICE',meta:'#35271f',desc:'Warme Kaffee-, Leder- und Messingtöne.',heroWord:'ZEIT',heroSub:'Schichten · Stunden · Überblick',heroStamp:'MGC',heroClock:'◒',heroRule:'Daily work record'},
-  electric:{label:'Electric Shift',brand:'ELECTRIC SHIFT',meta:'#101729',desc:'Kräftig, modern und kontrastreich mit Cobalt und Orange.',heroWord:'ZEIT',heroSub:'Shift on. Alles im Takt.',heroStamp:'ON',heroClock:'↗',heroRule:'Shift control'},
-  paper:{label:'Sunday Paper',brand:'SUNDAY PAPER',meta:'#344438',desc:'Ruhiges Editorial-Design wie ein schönes Wochenendmagazin.',heroWord:'ZEIT',heroSub:'Dein Arbeitsmonat in einer Ausgabe.',heroStamp:'ED.',heroClock:'✦',heroRule:'Work & time edition'},
-  afterhours:{label:'After Hours',brand:'AFTER HOURS',meta:'#171522',desc:'Dunkles Plum, Blush und ein Hauch Neon für späte Schichten.',heroWord:'ZEIT',heroSub:'Auch späte Schichten bleiben im Blick.',heroStamp:'PM',heroClock:'☾',heroRule:'Late shift log'}
+  fae:{label:'Fae Garden',brand:'FAE GARDEN',desc:'Leuchtende Feenmagie in Hot Pink, Smaragd und Violett.',heroSub:'Schichten zwischen Blüten & Magie.',heroStamp:'FAE',heroClock:'✦',heroRule:'Enchanted work log',metaLight:'#f20b8f',metaDark:'#16091e'},
+  dragon:{label:'Dragon Ember',brand:'DRAGON EMBER',desc:'Drachenfeuer mit kräftigem Rot, Orange und flüssigem Gold.',heroSub:'Feuer im Blick. Zeiten im Griff.',heroStamp:'FIRE',heroClock:'◆',heroRule:'Ember shift ledger',metaLight:'#ff3b0a',metaDark:'#130708'},
+  moon:{label:'Moon Court',brand:'MOON COURT',desc:'Celestial Fantasy mit kräftigem Violett, Pink und Mondlicht.',heroSub:'Unter Mondlicht bleibt jede Schicht sichtbar.',heroStamp:'MOON',heroClock:'☾',heroRule:'Celestial time ledger',metaLight:'#7357ff',metaDark:'#0d091d'},
+  spellbound:{label:'Spellbound Library',brand:'SPELLBOUND LIBRARY',desc:'Verzauberte Bibliothek in Smaragd, Amethyst und Gold.',heroSub:'Dein Arbeitsmonat, fein säuberlich verzaubert.',heroStamp:'ARC',heroClock:'❖',heroRule:'Arcane work journal',metaLight:'#176c58',metaDark:'#071411'}
 };
-const defaults={hoursPerDay:8,theme:'ledger',font:'modern',designVersion:8,months:{},schedule:{},scheduleMeta:{}};
+const LEGACY_THEME_MAP={ledger:'moon',studio:'fae',espresso:'spellbound',electric:'dragon',paper:'spellbound',afterhours:'moon'};
+const defaults={hoursPerDay:8,theme:'moon',colorMode:'auto',font:'modern',designVersion:21,months:{},schedule:{},scheduleMeta:{}};
 let db;
 try{db=JSON.parse(localStorage.getItem(KEY))||JSON.parse(localStorage.getItem(OLD_KEY))||structuredClone(defaults)}catch(e){db=structuredClone(defaults)}
-if(!db.months)db.months={};if(!db.schedule)db.schedule={};if(!db.scheduleMeta)db.scheduleMeta={};if(!db.hoursPerDay)db.hoursPerDay=8;if(!db.font)db.font='modern';if(!THEMES[db.theme])db.theme='ledger';db.designVersion=8;Object.values(db.months).forEach(m=>Object.values(m.entries||{}).forEach(e=>{if(!Array.isArray(e.objects))e.objects=[]}));
+if(!db.months)db.months={};if(!db.schedule)db.schedule={};if(!db.scheduleMeta)db.scheduleMeta={};if(!db.hoursPerDay)db.hoursPerDay=8;if(!db.font)db.font='modern';
+if(!THEMES[db.theme])db.theme=LEGACY_THEME_MAP[db.theme]||'moon';
+if(!['auto','light','dark'].includes(db.colorMode))db.colorMode='auto';
+db.designVersion=21;
+Object.values(db.months).forEach(m=>Object.values(m.entries||{}).forEach(e=>{if(!Array.isArray(e.objects))e.objects=[]}));
 let activeMonth=monthKey(today), editingDate=null, sheetStatus='work';
 let entryObjects=[],sheetObjects=[],pendingScheduleImport=[];
+const colorSchemeMedia=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
 
 function save(){localStorage.setItem(KEY,JSON.stringify(db))}
-function applyDesign(){const key=THEMES[db.theme]?db.theme:'ledger',cfg=THEMES[key];db.theme=key;document.documentElement.dataset.theme=key;document.documentElement.dataset.font=db.font||'modern';const t=document.querySelector('meta[name=theme-color]');if(t)t.content=cfg.meta;const b=$('themeBrand');if(b)b.textContent='MGC / '+cfg.brand;const f=$('footerThemeName');if(f)f.textContent=cfg.brand;const n=$('themeCurrentName');if(n)n.textContent=cfg.label;const d=$('themeCurrentDescription');if(d)d.textContent=cfg.desc;const hw=$('heroWord');if(hw)hw.textContent=cfg.heroWord||'ZEIT';const hs=$('heroSubline');if(hs)hs.textContent=cfg.heroSub||'Arbeitszeit · Urlaub · Krank';const hst=$('heroStamp');if(hst)hst.textContent=cfg.heroStamp||'08H';const hc=$('heroClock');if(hc)hc.textContent=cfg.heroClock||'◷';const hr=$('heroRuleLabel');if(hr)hr.textContent=cfg.heroRule||'Monthly work log';document.querySelectorAll('.themeChoice').forEach(x=>x.classList.toggle('active',x.dataset.themeChoice===key))}
+function resolvedColorMode(){return db.colorMode==='auto'?(colorSchemeMedia?.matches?'dark':'light'):db.colorMode}
+function applyDesign(){
+  const key=THEMES[db.theme]?db.theme:'moon',cfg=THEMES[key],mode=resolvedColorMode();
+  db.theme=key;
+  document.documentElement.dataset.theme=key;
+  document.documentElement.dataset.mode=mode;
+  document.documentElement.dataset.font=db.font||'modern';
+  const t=document.querySelector('meta[name=theme-color]');if(t)t.content=mode==='dark'?cfg.metaDark:cfg.metaLight;
+  const b=$('themeBrand');if(b)b.textContent='MGC / '+cfg.brand;
+  const f=$('footerThemeName');if(f)f.textContent=cfg.brand;
+  const n=$('themeCurrentName');if(n)n.textContent=cfg.label;
+  const d=$('themeCurrentDescription');if(d)d.textContent=cfg.desc;
+  const hw=$('heroWord');if(hw)hw.textContent='ZEIT';
+  const hs=$('heroSubline');if(hs)hs.textContent=cfg.heroSub;
+  const hst=$('heroStamp');if(hst)hst.textContent=cfg.heroStamp;
+  const hc=$('heroClock');if(hc)hc.textContent=cfg.heroClock;
+  const hr=$('heroRuleLabel');if(hr)hr.textContent=cfg.heroRule;
+  const cm=$('colorMode');if(cm)cm.value=db.colorMode;
+  const ms=$('modeStatus');if(ms)ms.textContent=db.colorMode==='auto'?('Automatisch · aktuell '+(mode==='dark'?'Dunkel':'Tag')):(mode==='dark'?'Dunkelmodus fest eingestellt':'Tagesmodus fest eingestellt');
+  document.querySelectorAll('.themeChoice').forEach(x=>x.classList.toggle('active',x.dataset.themeChoice===key));
+}
+
 function normalizeObjects(v){return Array.isArray(v)?v.filter(x=>OBJECTS.includes(x)):[]}
 function objectsText(v){const a=normalizeObjects(v);return a.length?a.join(', '):''}
 function setupMultiSelect(id,getSelection,setSelection){const root=$(id),button=root.querySelector('.multiSelectButton'),menu=root.querySelector('.multiSelectMenu'),textEl=root.querySelector('.msText');function draw(){const selected=normalizeObjects(getSelection());menu.innerHTML='';OBJECTS.forEach(name=>{const lab=document.createElement('label');lab.className='msOption';const cb=document.createElement('input');cb.type='checkbox';cb.checked=selected.includes(name);cb.onchange=()=>{let a=normalizeObjects(getSelection());if(cb.checked&&!a.includes(name))a.push(name);if(!cb.checked)a=a.filter(x=>x!==name);setSelection(a);draw()};const sp=document.createElement('span');sp.textContent=name;lab.append(cb,sp);menu.appendChild(lab)});const a=normalizeObjects(getSelection());textEl.textContent=a.length?a.join(', '):'Objekt(e) auswählen';button.title=textEl.textContent}button.onclick=e=>{e.stopPropagation();document.querySelectorAll('.multiSelectMenu').forEach(m=>{if(m!==menu)m.classList.add('hidden')});menu.classList.toggle('hidden')};menu.onclick=e=>e.stopPropagation();root._draw=draw;draw()}
@@ -620,7 +613,7 @@ function badgeClass(s){return s==='work'?'b-work':s==='vacation'?'b-vac':s==='si
 function setDefaults(){
   $('monthPicker').value=activeMonth;$('hoursPerDay').value=db.hoursPerDay;
   $('entryDate').value=(monthKey(today)===activeMonth?dateKey(today):activeMonth+'-01');
-  $('manualWorkdays').value=monthState().manualWorkdays??'';$('fontSelect').value=db.font||'modern';entryObjects=[];$('entryObjectSelect')._draw?.();
+  $('manualWorkdays').value=monthState().manualWorkdays??'';$('fontSelect').value=db.font||'modern';if($('colorMode'))$('colorMode').value=db.colorMode||'auto';entryObjects=[];$('entryObjectSelect')._draw?.();
 }
 function renderTop(){
   const [hy,hmn]=activeMonth.split('-').map(Number);$('heroMonthLabel').textContent=new Intl.DateTimeFormat('de-DE',{month:'long',year:'numeric'}).format(new Date(hy,hmn-1,1));
@@ -1035,7 +1028,12 @@ $('monthPicker').onchange=e=>{activeMonth=e.target.value||monthKey(today);monthS
 $('hoursPerDay').onchange=e=>{const n=Number(e.target.value);if(n>=0&&Number.isFinite(n)){db.hoursPerDay=n;save();renderAll()}};
 $('manualWorkdays').onchange=e=>{const v=e.target.value.trim();monthState().manualWorkdays=v===''?null:Math.max(0,Math.round(Number(v)));save();renderAll()};
 document.querySelectorAll('.themeChoice').forEach(b=>b.onclick=()=>{db.theme=b.dataset.themeChoice;save();applyDesign()});
+$('colorMode').onchange=e=>{db.colorMode=e.target.value;save();applyDesign()};
 $('fontSelect').onchange=e=>{db.font=e.target.value;save();applyDesign()};
+if(colorSchemeMedia){
+  const onSchemeChange=()=>{if(db.colorMode==='auto')applyDesign()};
+  if(colorSchemeMedia.addEventListener)colorSchemeMedia.addEventListener('change',onSchemeChange);else colorSchemeMedia.addListener?.(onSchemeChange);
+}
 $('entryStatus').onchange=toggleEntryFields;$('entryStart').oninput=updateEntryPreview;$('entryEnd').oninput=updateEntryPreview;$('saveEntry').onclick=saveEntryFromMain;
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>activateTab(b.dataset.tab));
 $('closeSheet').onclick=closeDay;$('dayOverlay').onclick=e=>{if(e.target===$('dayOverlay'))closeDay()};document.querySelectorAll('.quickrow button').forEach(b=>b.onclick=()=>{sheetStatus=b.dataset.status;renderSheetStatus()});$('sheetStart').oninput=renderSheetStatus;$('sheetEnd').oninput=renderSheetStatus;$('saveSheet').onclick=saveDay;
