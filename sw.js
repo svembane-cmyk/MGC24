@@ -1,4 +1,4 @@
-const CACHE = 'sabrina-zeiterfassung-v2';
+const CACHE = 'sabrina-zeiterfassung-v3';
 const ASSETS = [
   './',
   './index.html',
