@@ -35,3 +35,5 @@ v11: Mobile Import-Vorschau im Dienstplan neu aufgebaut; Felder stapeln auf klei
 v12: Kopfbereich reagiert jetzt stärker auf das gewählte Design (Branding, Titelwort, Unterzeile, Stempel und Symbol ändern sich je Theme).
 
 v13: Sechs eigenständige Header-Designs. ZEIT bleibt als App-Identität, aber Layout, Typografie, Dekoration, Stempel und Symbol wechseln passend zum Theme.
+
+v14: Importierte Dienste erscheinen direkt im Monatskalender als PLAN; Ist-Zeiten separat. PDF-Import ist nicht mehr auf zwei Wochen begrenzt und mehrere Zeiträume bleiben gespeichert.

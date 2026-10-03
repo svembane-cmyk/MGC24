@@ -287,6 +287,10 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
 @media(min-width:430px){.schedulePreviewFields{grid-template-columns:110px minmax(0,1fr);align-items:end}}
 @media(max-width:390px){.scheduleRow{grid-template-columns:64px minmax(0,1fr) auto;gap:7px;padding:9px}.srAction{padding:6px;font-size:7px}}
 
+
+/* ---------- v14 · Plan + Ist im Monatskalender ---------- */
+.day{min-height:86px;padding:6px 5px}.day .mark{margin-top:5px}.dayPlan{display:block;margin-top:5px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--accent) 14%,transparent);border-left:3px solid var(--accent);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.dayPlan.free{background:color-mix(in srgb,var(--offbg) 80%,transparent);border-left-color:var(--line);color:var(--muted)}.dayActual{display:block;margin-top:4px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--ice) 45%,transparent);border-left:3px solid var(--blueText);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.calendarLegend{display:flex;gap:14px;align-items:center;margin-top:11px;font:800 9px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.calendarLegend span{display:flex;align-items:center;gap:5px}.calendarLegend i{display:inline-block;width:12px;height:8px;border-left:3px solid}.legendPlan{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:var(--accent)}.legendActual{background:color-mix(in srgb,var(--ice) 45%,transparent);border-color:var(--blueText)}
+@media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
 
 </style>
@@ -354,10 +358,10 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
   <section id="calendarPanel" class="panel hidden">
     <div class="card">
       <div class="sectionKicker">03 · Kalender</div>
-      <div class="cardTitle"><div><b>Kalender</b><div class="muted">Tag antippen und Arbeit, Urlaub, Krank oder Frei markieren.</div></div></div>
+      <div class="cardTitle"><div><b>Kalender</b><div class="muted">Dienstplan und tatsächliche Zeiterfassung gemeinsam im Blick. Tag antippen zum Bearbeiten.</div></div></div>
       <div class="weekhead"><div>Mo</div><div>Di</div><div>Mi</div><div>Do</div><div>Fr</div><div>Sa</div><div>So</div></div>
       <div id="calendar" class="calendar"></div>
-      <div class="sectionNote">Urlaub und Krank werden automatisch mit <b id="absenceHoursLabel">8:00 h</b> in deine Monatsleistung übernommen. Gesetzliche Feiertage Sachsen-Anhalt werden im Kalender gekennzeichnet.</div>
+      <div class="calendarLegend"><span><i class="legendPlan"></i>Plan</span><span><i class="legendActual"></i>Ist</span></div><div class="sectionNote">Geplante Dienste verändern deine Stunden nicht. Erst deine tatsächliche Zeiterfassung zählt. Urlaub und Krank werden automatisch mit <b id="absenceHoursLabel">8:00 h</b> übernommen.</div>
     </div>
   </section>
 
@@ -365,7 +369,7 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
   <section id="schedulePanel" class="panel hidden">
     <div class="card">
       <div class="sectionKicker">04 · Dienstplan</div>
-      <div class="cardTitle"><div><b>Deine nächsten 2 Wochen</b><div class="muted">Nur dein persönlicher Plan · Planung und Ist-Zeit bleiben getrennt.</div></div></div>
+      <div class="cardTitle"><div><b>Dein gespeicherter Dienstplan</b><div class="muted">Alle importierten Zeiträume · Planung und Ist-Zeit bleiben getrennt.</div></div></div>
       <div class="scheduleRange"><strong id="scheduleRangeLabel">Noch kein Dienstplan gespeichert</strong><span class="badge b-work">PLAN</span></div>
       <div id="scheduleStats" class="scheduleStats"></div>
       <div id="scheduleCalendar" class="scheduleCalendar"></div>
@@ -375,7 +379,7 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
       <div class="sectionKicker">05 · PLAN AKTUALISIEREN</div>
       <div class="cardTitle"><div><b>Neuen Dienstplan laden</b><div class="muted">Die App liest ausschließlich <b>Vembane, Sabrina</b> aus.</div></div></div>
       <div class="scheduleUploadBox">
-        <div class="scheduleUploadHead"><div class="uploadIcon">▤</div><div class="scheduleUploadText"><b>2‑Wochen‑PDF importieren</b><div class="muted">Vor dem Speichern siehst du immer eine Vorschau.</div></div></div>
+        <div class="scheduleUploadHead"><div class="uploadIcon">▤</div><div class="scheduleUploadText"><b>Dienstplan-PDF importieren</b><div class="muted">Egal ob 2 Wochen oder länger: Alle erkannten Tage werden übernommen.</div></div></div>
         <button id="pickSchedulePdf" class="primary" type="button">PDF-Dienstplan auswählen</button>
         <input id="schedulePdfFile" type="file" accept="application/pdf,.pdf" hidden>
         <div id="scheduleImportState" class="scheduleStatus">Noch kein PDF ausgewählt.</div>
@@ -544,10 +548,30 @@ function renderEntries(){
   root.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openDay(b.dataset.edit));root.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{if(confirm('Eintrag wirklich löschen?')){delete monthState().entries[b.dataset.delete];save();renderAll()}});
 }
 function renderCalendar(){
-  const root=$('calendar');root.innerHTML='';const [y,m]=activeMonth.split('-').map(Number),first=new Date(y,m-1,1),offset=(first.getDay()+6)%7,dim=daysInMonth(activeMonth),entries=allEntries(),hol=holidays(y);
+  const root=$('calendar');root.innerHTML='';const [y,m]=activeMonth.split('-').map(Number),first=new Date(y,m-1,1),offset=(first.getDay()+6)%7,dim=daysInMonth(activeMonth),entries=allEntries(),hol=holidays(y),plans=db.schedule||{};
   for(let i=0;i<offset;i++){const x=document.createElement('div');x.className='day empty';root.appendChild(x)}
-  for(let d=1;d<=dim;d++){const k=`${activeMonth}-${pad(d)}`,e=entries[k],h=hol[k],btn=document.createElement('button');btn.className='day';if(e)btn.classList.add(e.status==='vacation'?'vac':e.status==='sick'?'sick':e.status==='work'?'work':'off');if(h)btn.classList.add('holiday');if(k===dateKey(today))btn.classList.add('today');
-    const c=e?shiftCalc(e):null;let mark=e?(statusLabel(e.status)+(c.minutes?` · ${hm(c.minutes)}h`:'')):(h?h:'');if(e?.status==='work'&&e.objects?.length)mark+=' · '+e.objects.join(' / ');btn.innerHTML=`<div class="n">${d}</div><div class="mark"></div>`;btn.querySelector('.mark').textContent=mark;btn.onclick=()=>openDay(k);root.appendChild(btn)}
+  for(let d=1;d<=dim;d++){
+    const k=`${activeMonth}-${pad(d)}`,e=entries[k],plan=plans[k],h=hol[k],btn=document.createElement('button');btn.className='day';
+    if(e)btn.classList.add(e.status==='vacation'?'vac':e.status==='sick'?'sick':e.status==='work'?'work':'off');if(h)btn.classList.add('holiday');if(k===dateKey(today))btn.classList.add('today');
+    const c=e?shiftCalc(e):null;
+    let planText='';
+    if(plan){
+      if(plan.status==='off')planText='Frei';
+      else if(plan.status==='vacation')planText='Urlaub';
+      else if(plan.status==='sick')planText='Krank';
+      else planText=[plan.time,plan.raw].filter(Boolean).join(' · ')||'Dienst';
+    }
+    let actualText='';
+    if(e){
+      if(e.status==='work')actualText=`Ist ${c.minutes?hm(c.minutes)+'h':''}${e.objects?.length?' · '+e.objects.join('/') :''}`.trim();
+      else actualText=statusLabel(e.status)+(c.minutes?` · ${hm(c.minutes)}h`:'');
+    }
+    const holidayText=!e&&h?`<div class="mark">${escapeHtml(h)}</div>`:'';
+    const planHtml=planText?`<span class="dayPlan ${plan?.status==='off'?'free':''}">Plan · ${escapeHtml(planText)}</span>`:'';
+    const actualHtml=actualText?`<span class="dayActual">${escapeHtml(actualText)}</span>`:'';
+    btn.innerHTML=`<div class="n">${d}</div>${holidayText}${planHtml}${actualHtml}`;
+    btn.title=[h,planText?`Plan: ${planText}`:'',actualText].filter(Boolean).join(' · ');btn.onclick=()=>openDay(k);root.appendChild(btn)
+  }
 }
 function renderExport(){
   const c=counts(),target=Math.round(targetDays()*db.hoursPerDay*60),done=totalDone(),diff=done-target;
@@ -582,9 +606,7 @@ function shortScheduleDate(k){return new Intl.DateTimeFormat('de-DE',{weekday:'s
 function renderSchedule(){
   const root=$('scheduleCalendar'),stats=$('scheduleStats');if(!root)return;root.innerHTML='';if(stats)stats.innerHTML='';
   const meta=db.scheduleMeta||{},latest=meta.latestRange;
-  let keys=[];
-  if(latest?.start&&latest?.end)keys=dateRange(latest.start,latest.end);
-  else keys=Object.keys(db.schedule||{}).filter(k=>k.startsWith(activeMonth)).sort();
+  let keys=Object.keys(db.schedule||{}).sort();
   if(!keys.length){
     $('scheduleRangeLabel').textContent='Noch kein Dienstplan gespeichert';
     if(stats)stats.classList.add('hidden');
@@ -592,7 +614,7 @@ function renderSchedule(){
     return
   }
   if(stats)stats.classList.remove('hidden');
-  $('scheduleRangeLabel').textContent=latest?.start&&latest?.end?`${shortScheduleDate(latest.start)} – ${shortScheduleDate(latest.end)}`:`${activeMonth.split('-').reverse().join('.')}`;
+  $('scheduleRangeLabel').textContent=`${shortScheduleDate(keys[0])} – ${shortScheduleDate(keys[keys.length-1])}`;
   const entries=keys.map(k=>({k,e:(db.schedule||{})[k]}));
   const work=entries.filter(x=>x.e?.status==='work'),free=entries.filter(x=>x.e?.status==='off');
   const todayKey=dateKey(today),next=work.find(x=>x.k>=todayKey)||work[0];
@@ -760,15 +782,19 @@ async function importScheduleFile(file){
 function saveScheduleImport(){
   if(!pendingScheduleImport.length)return;
   const rows=pendingScheduleImport.slice().sort((a,b)=>a.date.localeCompare(b.date)),start=rows[0].date,end=rows[rows.length-1].date;
-  dateRange(start,end).forEach(k=>delete db.schedule[k]);
+  // Nur die Tage aktualisieren, die im hochgeladenen PDF tatsächlich erkannt wurden.
+  // Andere bereits importierte Zeiträume bleiben erhalten.
+  rows.forEach(e=>delete db.schedule[e.date]);
   rows.forEach(e=>{
     const status=scheduleStatusFromRaw(e.raw,e.time);
     if(status)db.schedule[e.date]={time:e.time||'',raw:e.raw||'',status,sourceFile:e.sourceFile||'',importedAt:new Date().toISOString()};
   });
   db.scheduleMeta.latestRange={start,end,sourceFile:rows[0].sourceFile||'',importedAt:new Date().toISOString()};
+  if(!Array.isArray(db.scheduleMeta.imports))db.scheduleMeta.imports=[];
+  db.scheduleMeta.imports.push({start,end,sourceFile:rows[0].sourceFile||'',importedAt:new Date().toISOString(),days:rows.length});
   save();pendingScheduleImport=[];$('schedulePreviewCard').classList.add('hidden');$('schedulePdfFile').value='';
   $('scheduleImportState').className='scheduleStatus ok';$('scheduleImportState').textContent=`Dienstplan ${shortScheduleDate(start)} – ${shortScheduleDate(end)} gespeichert ✓`;
-  renderSchedule();
+  renderAll();
 }
 function activateTab(id){
   document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
