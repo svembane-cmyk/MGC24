@@ -1,4 +1,4 @@
-const CACHE = 'sabrina-zeit-v6-moods';
+const CACHE = 'sabrina-zeit-v7-time-icon';
 const ASSETS = [
   './',
   './index.html',
