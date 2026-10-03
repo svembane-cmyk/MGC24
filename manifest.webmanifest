@@ -1,6 +1,6 @@
 {
-  "name": "Time Ledger – Sabrinas Zeiterfassung",
-  "short_name": "Time Ledger",
+  "name": "ZEIT – Sabrinas Zeiterfassung",
+  "short_name": "ZEIT",
   "description": "Arbeitszeit, Urlaub und Krankheit monatlich erfassen und als Excel exportieren.",
   "start_url": "./index.html",
   "scope": "./",

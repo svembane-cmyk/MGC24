@@ -1,7 +1,14 @@
-SABRINAS ZEITERFASSUNG – TIME LEDGER v5
+Sabrinas Zeiterfassung – GitHub Pages / PWA v6
 
-Komplett neues Design: Editorial Work Log / moderne Stempelkarte.
-Funktionen bleiben erhalten: Arbeitszeiten, Nachtschichten, 30 Min Pause ab 6h, Urlaub/Krank je 8h, Objekte/Mehrfachauswahl, Kalender, XLSX-Export und Teilen per Mail.
+Mobile-first Web-App mit:
+- Beginn / Ende und Nachtschichten über Mitternacht
+- 30 Min Pause automatisch ab 6 h
+- Urlaub und Krank = Sollstunden pro Tag (standardmäßig 8 h)
+- Mehrfachauswahl der MGC-Objekte
+- Monatsübersicht + Kalender
+- Excel-Export / Teilen für die Buchhaltung
+- Offline-Nutzung als installierbare PWA
+- 6 wechselbare App-Designs + Schriftarten
 
-GitHub Pages: alle Dateien im Repository ersetzen und committen.
-Bei bereits installierter Web-App die App einmal komplett schließen und erneut öffnen.
+GitHub Pages:
+Alle Dateien ins Root des bestehenden Repositorys hochladen und ersetzen.
