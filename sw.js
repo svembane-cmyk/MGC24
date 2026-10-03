@@ -1,4 +1,4 @@
-const CACHE = 'sabrina-zeit-v15-calendar-fix';
+const CACHE = 'sabrina-zeit-v16-plan-editor';
 const ASSETS = [
   './',
   './index.html',
