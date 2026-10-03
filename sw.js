@@ -1,11 +1,19 @@
-const CACHE = 'sabrina-zeit-v21-fantasy-themes';
+const CACHE = 'sabrina-zeit-v22-photo-headers';
 const ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png'
+  './apple-touch-icon.png',
+  './assets/fae-light.webp',
+  './assets/fae-dark.webp',
+  './assets/dragon-light.webp',
+  './assets/dragon-dark.webp',
+  './assets/moon-light.webp',
+  './assets/moon-dark.webp',
+  './assets/spellbound-light.webp',
+  './assets/spellbound-dark.webp'
 ];
 
 self.addEventListener('install', event => {
