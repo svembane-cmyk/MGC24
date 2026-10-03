@@ -573,16 +573,43 @@ async function parseSchedulePdf(file){
     if(!first)throw new Error('„Vembane“ wurde gefunden, aber die Zeile „Sabrina“ konnte nicht sicher erkannt werden.');
     const datum=items.find(i=>/^datum$/i.test(i.text));
     if(!datum)throw new Error('Die Datumszeile des Dienstplans konnte nicht erkannt werden.');
-    const dateRow=items.filter(i=>Math.abs(i.y-datum.y)<3.5);
+
+    // Je nach PDF-Erzeuger liefert PDF.js ein Datum entweder als zwei Textteile
+    // (z. B. "28." + "Sep") oder als einen Textteil ("28. Sep").
+    // Beides wird hier unterstützt. Genau das war bei den MGC-Dienstplänen nötig.
+    const parts=[];
+    const addPart=(day,month,cx)=>{
+      day=Number(day);month=Number(month);
+      if(!day||!month||!Number.isFinite(cx))return;
+      if(!parts.some(p=>p.day===day&&p.month===month&&Math.abs(p.cx-cx)<8))parts.push({day,month,cx});
+    };
+    const parseCombined=i=>{
+      const m=String(i.text||'').trim().match(/^(\d{1,2})\.\s*([A-Za-zÄÖÜäöüß.]+)$/u);
+      if(!m)return false;
+      const mo=monthNumberDE(m[2]);
+      if(!mo)return false;
+      addPart(parseInt(m[1],10),mo,i.cx);
+      return true;
+    };
+
+    // Zuerst die Datumskopfzeile um "Datum" herum prüfen.
+    const dateRow=items.filter(i=>Math.abs(i.y-datum.y)<6.5&&i.x>datum.x+25);
+    dateRow.forEach(parseCombined);
+
+    // Falls Tag und Monat getrennt sind, die Paare anhand ihrer X-Position verbinden.
     const dayItems=dateRow.filter(i=>/^\d{1,2}\.$/.test(i.text)).sort((a,b)=>a.x-b.x);
     const monthItems=dateRow.filter(i=>monthNumberDE(i.text)>0).sort((a,b)=>a.x-b.x);
-    const parts=[];
     dayItems.forEach(d=>{
-      const candidates=monthItems.filter(m=>m.x>=d.x-2&&m.x-d.x<35);
+      const candidates=monthItems.filter(m=>m.x>=d.x-4&&m.x-d.x<42);
       const mo=candidates.sort((a,b)=>Math.abs(a.x-d.x)-Math.abs(b.x-d.x))[0];
-      if(mo)parts.push({day:parseInt(d.text,10),month:monthNumberDE(mo.text),cx:(d.x+mo.x+mo.w)/2});
+      if(mo)addPart(parseInt(d.text,10),monthNumberDE(mo.text),(d.x+mo.x+mo.w)/2);
     });
-    if(parts.length<7)throw new Error('Es wurden zu wenige Datumsspalten erkannt. Bitte prüfe, ob der Dienstplan das gleiche Tabellenformat hat.');
+
+    // Fallback: Manche PDFs setzen die Datumstexte minimal auf eine andere Grundlinie.
+    // Dann alle kombinierten Datumsfelder der Seite berücksichtigen.
+    if(parts.length<7)items.forEach(parseCombined);
+
+    if(parts.length<7)throw new Error(`Es wurden nur ${parts.length} Datumsspalten erkannt. Bitte schick mir diesen Dienstplan zur Prüfung.`);
     parts.sort((a,b)=>a.cx-b.cx);
     const dates=inferScheduleDates(parts);
     const timeRow=items.filter(i=>Math.abs(i.y-surname.y)<3.8&&i.x>surname.x+40&&/^\d{1,2}:\d{2}$/.test(i.text));

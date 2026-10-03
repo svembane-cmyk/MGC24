@@ -20,3 +20,6 @@ Die PDF-Auswertung läuft im Browser auf deinem Gerät. Beim ersten PDF-Import w
 
 IPHONE
 Wenn nach dem GitHub-Update noch eine alte App-Version erscheint, die Web-App einmal komplett schließen und neu öffnen. Falls nötig vom Home-Bildschirm entfernen und über Safari erneut „Zum Home-Bildschirm“ hinzufügen.
+
+
+v9: Dienstplan-PDF-Import repariert. Datumsfelder werden nun sowohl als '28. Sep' als auch als getrennte '28.' + 'Sep'-Textteile erkannt.
