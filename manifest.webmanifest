@@ -1,7 +1,7 @@
 {
   "name": "ZEIT – Sabrinas Zeiterfassung",
   "short_name": "ZEIT",
-  "description": "Arbeitszeit, Urlaub und Krankheit monatlich erfassen und als Excel exportieren.",
+  "description": "Arbeitszeit, Dienstplan, Urlaub und Krankheit erfassen und als Excel exportieren.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
