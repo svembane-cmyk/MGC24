@@ -288,7 +288,7 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
 @media(max-width:390px){.scheduleRow{grid-template-columns:64px minmax(0,1fr) auto;gap:7px;padding:9px}.srAction{padding:6px;font-size:7px}}
 
 
-/* ---------- v14 · Plan + Ist im Monatskalender ---------- */
+/* ---------- v15 · Plan + Ist Kalender Fix ---------- */
 .day{min-height:86px;padding:6px 5px}.day .mark{margin-top:5px}.dayPlan{display:block;margin-top:5px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--accent) 14%,transparent);border-left:3px solid var(--accent);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.dayPlan.free{background:color-mix(in srgb,var(--offbg) 80%,transparent);border-left-color:var(--line);color:var(--muted)}.dayActual{display:block;margin-top:4px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--ice) 45%,transparent);border-left:3px solid var(--blueText);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.calendarLegend{display:flex;gap:14px;align-items:center;margin-top:11px;font:800 9px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.calendarLegend span{display:flex;align-items:center;gap:5px}.calendarLegend i{display:inline-block;width:12px;height:8px;border-left:3px solid}.legendPlan{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:var(--accent)}.legendActual{background:color-mix(in srgb,var(--ice) 45%,transparent);border-color:var(--blueText)}
 @media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
@@ -468,6 +468,7 @@ const KEY='sabrina_zeiterfassung_v2';
 const OLD_KEY='sabrina_zeiterfassung_v1';
 const OBJECTS=['Johanniskirche','Gartenhaus','Hyparschale','Büro','HGS','Deck 13','Kontor','Außer Haus','Getec','Messe','Seebühne'];
 const $=id=>document.getElementById(id);
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const pad=n=>String(n).padStart(2,'0');
 const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
 const monthKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}`;
