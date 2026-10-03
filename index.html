@@ -325,6 +325,69 @@ html[data-theme="spellbound"] .tabs button.active{background:linear-gradient(135
 @media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
 
+
+/* ---------- v22 · realistische Bild-Header ---------- */
+html[data-theme="fae"][data-mode="light"]{--hero-photo:url("./assets/fae-light.webp")}
+html[data-theme="fae"][data-mode="dark"]{--hero-photo:url("./assets/fae-dark.webp")}
+html[data-theme="dragon"][data-mode="light"]{--hero-photo:url("./assets/dragon-light.webp")}
+html[data-theme="dragon"][data-mode="dark"]{--hero-photo:url("./assets/dragon-dark.webp")}
+html[data-theme="moon"][data-mode="light"]{--hero-photo:url("./assets/moon-light.webp")}
+html[data-theme="moon"][data-mode="dark"]{--hero-photo:url("./assets/moon-dark.webp")}
+html[data-theme="spellbound"][data-mode="light"]{--hero-photo:url("./assets/spellbound-light.webp")}
+html[data-theme="spellbound"][data-mode="dark"]{--hero-photo:url("./assets/spellbound-dark.webp")}
+
+.ledgerHero{
+  min-height:220px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:var(--card-radius)!important;
+  background:
+    linear-gradient(180deg,rgba(10,8,15,.18) 0%,rgba(10,8,15,.08) 38%,rgba(10,8,15,.72) 100%),
+    var(--hero-photo)!important;
+  background-size:cover!important;
+  background-position:center!important;
+  box-shadow:var(--hero-shadow)!important;
+}
+.ledgerHero:before,.ledgerHero:after,.ledgerHero .heroDecor{display:none!important}
+.heroSimple{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:16px 17px 15px}
+.heroSimpleTop{display:flex;align-items:center;justify-content:flex-start}
+.ledgerHero .eyebrow{
+  color:#fff!important;
+  background:rgba(14,10,18,.36);
+  border:1px solid rgba(255,255,255,.26);
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:9px;
+  letter-spacing:.17em;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  text-shadow:0 1px 10px rgba(0,0,0,.45)
+}
+.heroMonth{
+  align-self:flex-start;
+  max-width:92%;
+  color:#fff;
+  font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+  font-size:30px;
+  line-height:1;
+  font-weight:700;
+  letter-spacing:-.025em;
+  text-transform:capitalize;
+  text-shadow:0 2px 18px rgba(0,0,0,.68)
+}
+html[data-mode="light"] .ledgerHero{
+  background:
+    linear-gradient(180deg,rgba(16,11,18,.08) 0%,rgba(16,11,18,.02) 38%,rgba(16,11,18,.62) 100%),
+    var(--hero-photo)!important;
+  background-size:cover!important;
+  background-position:center!important
+}
+@media(min-width:700px){
+  .ledgerHero{min-height:260px!important}
+  .heroSimple{padding:20px 22px 18px}
+  .heroMonth{font-size:38px}
+}
+
 </style>
 
 <link rel="manifest" href="manifest.webmanifest">
@@ -334,11 +397,11 @@ html[data-theme="spellbound"] .tabs button.active{background:linear-gradient(135
 </head>
 <body>
 <div class="app">
-  <header class="ledgerHero">
-    <div class="heroDecor" aria-hidden="true"><span class="decorA"></span><span class="decorB"></span><span class="decorC"></span></div>
-    <div class="heroTop"><span class="eyebrow" id="themeBrand">MGC / TIME LEDGER</span><span class="stamp" id="heroStamp">08H</span></div>
-    <div class="heroMain"><div class="heroCopy"><h1 id="heroWord">ZEIT</h1><p id="heroSubline">Arbeitszeit · Urlaub · Krank</p></div><div class="clockMark" id="heroClock">◷</div></div>
-    <div class="heroRule"><span id="heroRuleLabel">Monthly work log</span><span id="heroMonthLabel">Monat</span></div>
+  <header class="ledgerHero" aria-label="Zeiterfassung">
+    <div class="heroSimple">
+      <div class="heroSimpleTop"><span class="eyebrow" id="themeBrand">ZEITERFASSUNG</span></div>
+      <div class="heroMonth" id="heroMonthLabel">Monat</div>
+    </div>
   </header>
 
   <div class="card">
@@ -540,13 +603,13 @@ const THEMES={
   spellbound:{label:'Spellbound Library',brand:'SPELLBOUND LIBRARY',desc:'Verzauberte Bibliothek in Smaragd, Amethyst und Gold.',heroSub:'Dein Arbeitsmonat, fein säuberlich verzaubert.',heroStamp:'ARC',heroClock:'❖',heroRule:'Arcane work journal',metaLight:'#176c58',metaDark:'#071411'}
 };
 const LEGACY_THEME_MAP={ledger:'moon',studio:'fae',espresso:'spellbound',electric:'dragon',paper:'spellbound',afterhours:'moon'};
-const defaults={hoursPerDay:8,theme:'moon',colorMode:'auto',font:'modern',designVersion:21,months:{},schedule:{},scheduleMeta:{}};
+const defaults={hoursPerDay:8,theme:'moon',colorMode:'auto',font:'modern',designVersion:22,months:{},schedule:{},scheduleMeta:{}};
 let db;
 try{db=JSON.parse(localStorage.getItem(KEY))||JSON.parse(localStorage.getItem(OLD_KEY))||structuredClone(defaults)}catch(e){db=structuredClone(defaults)}
 if(!db.months)db.months={};if(!db.schedule)db.schedule={};if(!db.scheduleMeta)db.scheduleMeta={};if(!db.hoursPerDay)db.hoursPerDay=8;if(!db.font)db.font='modern';
 if(!THEMES[db.theme])db.theme=LEGACY_THEME_MAP[db.theme]||'moon';
 if(!['auto','light','dark'].includes(db.colorMode))db.colorMode='auto';
-db.designVersion=21;
+db.designVersion=22;
 Object.values(db.months).forEach(m=>Object.values(m.entries||{}).forEach(e=>{if(!Array.isArray(e.objects))e.objects=[]}));
 let activeMonth=monthKey(today), editingDate=null, sheetStatus='work';
 let entryObjects=[],sheetObjects=[],pendingScheduleImport=[];
@@ -561,7 +624,7 @@ function applyDesign(){
   document.documentElement.dataset.mode=mode;
   document.documentElement.dataset.font=db.font||'modern';
   const t=document.querySelector('meta[name=theme-color]');if(t)t.content=mode==='dark'?cfg.metaDark:cfg.metaLight;
-  const b=$('themeBrand');if(b)b.textContent='MGC / '+cfg.brand;
+  const b=$('themeBrand');if(b)b.textContent='ZEITERFASSUNG';
   const f=$('footerThemeName');if(f)f.textContent=cfg.brand;
   const n=$('themeCurrentName');if(n)n.textContent=cfg.label;
   const d=$('themeCurrentDescription');if(d)d.textContent=cfg.desc;
