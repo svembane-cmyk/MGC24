@@ -1,4 +1,4 @@
-const CACHE = 'sabrina-zeit-v20-large-calendar';
+const CACHE = 'sabrina-zeit-v21-fantasy-themes';
 const ASSETS = [
   './',
   './index.html',
