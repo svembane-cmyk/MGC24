@@ -1,15 +1,25 @@
 {
-  "name": "Sabrinas Zeiterfassung",
-  "short_name": "Zeiterfassung",
+  "name": "Time Ledger – Sabrinas Zeiterfassung",
+  "short_name": "Time Ledger",
   "description": "Arbeitszeit, Urlaub und Krankheit monatlich erfassen und als Excel exportieren.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4efe7",
-  "theme_color": "#d7662d",
+  "background_color": "#ebe5da",
+  "theme_color": "#18292c",
   "lang": "de-DE",
   "icons": [
-    {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

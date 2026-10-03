@@ -1,18 +1,7 @@
-SABRINAS ZEITERFASSUNG – GITHUB PAGES
+SABRINAS ZEITERFASSUNG – TIME LEDGER v5
 
-Dateien in ein öffentliches GitHub-Repository hochladen:
-- index.html
-- manifest.webmanifest
-- sw.js
-- icon-192.png
-- icon-512.png
-- apple-touch-icon.png
+Komplett neues Design: Editorial Work Log / moderne Stempelkarte.
+Funktionen bleiben erhalten: Arbeitszeiten, Nachtschichten, 30 Min Pause ab 6h, Urlaub/Krank je 8h, Objekte/Mehrfachauswahl, Kalender, XLSX-Export und Teilen per Mail.
 
-Danach: Settings → Pages → Deploy from branch → main → /(root) → Save.
-Die GitHub-Pages-Adresse in Safari öffnen und über Teilen → Zum Home-Bildschirm hinzufügen installieren.
-
-Update v2:
-- Design-Themes und Schriftarten wie in der Budget-App
-- Mehrfachauswahl für Objekte pro Arbeitstag
-- Objekte werden in der Excel-Zeitaufstellung ausgegeben
-- bestehende v1-Daten werden beim ersten Start übernommen
+GitHub Pages: alle Dateien im Repository ersetzen und committen.
+Bei bereits installierter Web-App die App einmal komplett schließen und erneut öffnen.
