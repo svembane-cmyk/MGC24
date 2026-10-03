@@ -668,7 +668,7 @@ function scheduleObjects(raw){
     'KONTOR':'Kontor','AUßER HAUS':'Außer Haus','AUSSER HAUS':'Außer Haus'
   };
   const out=[];
-  String(raw||'').split(/[\/, +&→>]/).map(x=>x.trim().toUpperCase()).filter(Boolean).forEach(x=>{if(map[x]&&!out.includes(map[x]))out.push(map[x])});
+  String(raw||'').split(/[\/,+&→>]/).map(x=>x.trim().toUpperCase()).filter(Boolean).forEach(x=>{if(map[x]&&!out.includes(map[x]))out.push(map[x])});
   return out;
 }
 function scheduleStatusLabel(s){return s==='off'?'Frei':s==='vacation'?'Urlaub':s==='sick'?'Krank':'Dienst'}
