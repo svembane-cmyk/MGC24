@@ -288,6 +288,19 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
 @media(max-width:390px){.scheduleRow{grid-template-columns:64px minmax(0,1fr) auto;gap:7px;padding:9px}.srAction{padding:6px;font-size:7px}}
 
 
+
+/* ---------- v16 · Dienstplan direkt bearbeiten ---------- */
+.planEditorGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.planEditorGrid .full{grid-column:1/-1}
+.planEditorActions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}
+.planEditorActions .wide{grid-column:1/-1}
+.planEditorState{margin-top:8px;font-size:10px;color:var(--muted);line-height:1.4}
+.srButtons{display:flex;flex-direction:column;gap:5px;align-items:stretch}
+.srEdit,.srAction{padding:6px 8px;font-size:8px;min-height:28px;white-space:nowrap}
+.scheduleRow.off .srEdit,.scheduleRow.vacation .srEdit,.scheduleRow.sick .srEdit{display:block}
+.scheduleRow.off .srAction,.scheduleRow.vacation .srAction,.scheduleRow.sick .srAction{display:none}
+@media(max-width:390px){.planEditorGrid{grid-template-columns:1fr}.planEditorGrid .full{grid-column:1}.srEdit,.srAction{padding:6px;font-size:7px}}
+
 /* ---------- v15 · Plan + Ist Kalender Fix ---------- */
 .day{min-height:86px;padding:6px 5px}.day .mark{margin-top:5px}.dayPlan{display:block;margin-top:5px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--accent) 14%,transparent);border-left:3px solid var(--accent);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.dayPlan.free{background:color-mix(in srgb,var(--offbg) 80%,transparent);border-left-color:var(--line);color:var(--muted)}.dayActual{display:block;margin-top:4px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--ice) 45%,transparent);border-left:3px solid var(--blueText);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.calendarLegend{display:flex;gap:14px;align-items:center;margin-top:11px;font:800 9px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.calendarLegend span{display:flex;align-items:center;gap:5px}.calendarLegend i{display:inline-block;width:12px;height:8px;border-left:3px solid}.legendPlan{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:var(--accent)}.legendActual{background:color-mix(in srgb,var(--ice) 45%,transparent);border-color:var(--blueText)}
 @media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
@@ -369,26 +382,43 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
   <section id="schedulePanel" class="panel hidden">
     <div class="card">
       <div class="sectionKicker">04 · Dienstplan</div>
-      <div class="cardTitle"><div><b>Dein gespeicherter Dienstplan</b><div class="muted">Alle importierten Zeiträume · Planung und Ist-Zeit bleiben getrennt.</div></div></div>
+      <div class="cardTitle"><div><b>Dein Dienstplan</b><div class="muted">Direkt eintragen, später ändern und bei Bedarf in die Zeiterfassung übernehmen.</div></div></div>
       <div class="scheduleRange"><strong id="scheduleRangeLabel">Noch kein Dienstplan gespeichert</strong><span class="badge b-work">PLAN</span></div>
       <div id="scheduleStats" class="scheduleStats"></div>
       <div id="scheduleCalendar" class="scheduleCalendar"></div>
     </div>
 
+    <div class="card" id="planEditorCard">
+      <div class="sectionKicker">05 · DIENST EINTRAGEN / ÄNDERN</div>
+      <div class="cardTitle"><div><b id="planEditorTitle">Dienst planen</b><div class="muted">PDF ist nicht nötig. Du kannst deinen Plan hier einfach selbst pflegen.</div></div></div>
+      <div class="planEditorGrid">
+        <div><label>Datum</label><input id="planDate" type="date"></div>
+        <div><label>Status</label><select id="planStatus"><option value="work">Dienst</option><option value="off">Frei</option><option value="vacation">Urlaub</option><option value="sick">Krank</option></select></div>
+        <div id="planTimeField"><label>Beginn</label><input id="planTime" type="time"></div>
+        <div id="planRawField"><label>Einsatz / Objekt</label><input id="planRaw" type="text" list="planObjects" placeholder="z. B. HGS oder Getec"><datalist id="planObjects"><option value="Johanniskirche"></option><option value="Gartenhaus"></option><option value="Hyparschale"></option><option value="Büro"></option><option value="HGS"></option><option value="Deck 13"></option><option value="Kontor"></option><option value="Außer Haus"></option><option value="Getec"></option><option value="Messe"></option><option value="Seebühne"></option></datalist></div>
+      </div>
+      <div class="planEditorActions">
+        <button id="planFromActual" type="button">Ist → Plan</button>
+        <button id="savePlanEntry" class="primary" type="button">Dienst speichern</button>
+        <button id="deletePlanEntry" class="wide hidden" type="button">Planeintrag löschen</button>
+      </div>
+      <div id="planEditorState" class="planEditorState">Wähle ein Datum und trage deinen Dienst ein.</div>
+    </div>
+
     <div class="card scheduleImportCard">
-      <div class="sectionKicker">05 · PLAN AKTUALISIEREN</div>
-      <div class="cardTitle"><div><b>Neuen Dienstplan laden</b><div class="muted">Die App liest ausschließlich <b>Vembane, Sabrina</b> aus.</div></div></div>
+      <div class="sectionKicker">OPTIONAL · PDF-IMPORT</div>
+      <div class="cardTitle"><div><b>Dienstplan aus PDF übernehmen</b><div class="muted">Nur wenn es gerade schneller ist – du kannst jeden importierten Dienst danach jederzeit ändern.</div></div></div>
       <div class="scheduleUploadBox">
-        <div class="scheduleUploadHead"><div class="uploadIcon">▤</div><div class="scheduleUploadText"><b>Dienstplan-PDF importieren</b><div class="muted">Egal ob 2 Wochen oder länger: Alle erkannten Tage werden übernommen.</div></div></div>
-        <button id="pickSchedulePdf" class="primary" type="button">PDF-Dienstplan auswählen</button>
+        <div class="scheduleUploadHead"><div class="uploadIcon">▤</div><div class="scheduleUploadText"><b>PDF-Dienstplan auswählen</b><div class="muted">Die App liest ausschließlich <b>Vembane, Sabrina</b> aus.</div></div></div>
+        <button id="pickSchedulePdf" class="primary" type="button">PDF auswählen</button>
         <input id="schedulePdfFile" type="file" accept="application/pdf,.pdf" hidden>
-        <div id="scheduleImportState" class="scheduleStatus">Noch kein PDF ausgewählt.</div>
+        <div id="scheduleImportState" class="scheduleStatus">Optional – du kannst den Dienstplan auch komplett ohne PDF führen.</div>
       </div>
     </div>
 
     <div id="schedulePreviewCard" class="card hidden">
       <div class="sectionKicker">PRÜFEN · VOR DEM SPEICHERN</div>
-      <div class="cardTitle"><div><b>Import-Vorschau</b><div class="muted">Uhrzeit und Einsatz kannst du hier notfalls korrigieren.</div></div></div>
+      <div class="cardTitle"><div><b>Import-Vorschau</b><div class="muted">Nach dem Speichern bleibt jeder Dienst einzeln bearbeitbar.</div></div></div>
       <div id="schedulePreview" class="schedulePreviewList"></div>
       <div class="actions" style="margin-top:12px">
         <button id="cancelScheduleImport" type="button">Verwerfen</button>
@@ -604,6 +634,64 @@ function scheduleStatusLabel(s){return s==='off'?'Frei':s==='vacation'?'Urlaub':
 function scheduleBadgeClass(s){return s==='off'?'b-off':s==='vacation'?'b-vac':s==='sick'?'b-sick':'b-work'}
 function dateRange(start,end){const out=[];if(!start||!end)return out;let d=dateFromKey(start),last=dateFromKey(end);while(d<=last){out.push(dateKey(d));d=addDays(d,1)}return out}
 function shortScheduleDate(k){return new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'}).format(dateFromKey(k))}
+
+function resetPlanEditor(date){
+  const k=date||$('planDate')?.value||dateKey(today);
+  if(!$('planDate'))return;
+  $('planDate').value=k;
+  $('planStatus').value='work';
+  $('planTime').value='';
+  $('planRaw').value='';
+  $('planEditorTitle').textContent='Dienst planen';
+  $('savePlanEntry').textContent='Dienst speichern';
+  $('deletePlanEntry').classList.add('hidden');
+  $('planEditorState').textContent='Wähle ein Datum und trage deinen Dienst ein.';
+  togglePlanFields();
+}
+function togglePlanFields(){
+  if(!$('planStatus'))return;
+  const work=$('planStatus').value==='work';
+  $('planTimeField').style.display=work?'block':'none';
+  $('planRawField').style.display=work?'block':'none';
+}
+function editPlanEntry(k){
+  const e=(db.schedule||{})[k];
+  $('planDate').value=k;
+  $('planStatus').value=e?.status||'work';
+  $('planTime').value=e?.time||'';
+  $('planRaw').value=e?.raw||'';
+  $('planEditorTitle').textContent=e?'Dienst ändern':'Dienst planen';
+  $('savePlanEntry').textContent=e?'Änderung speichern':'Dienst speichern';
+  $('deletePlanEntry').classList.toggle('hidden',!e);
+  $('planEditorState').textContent=e?'Dieser Planeintrag kann jetzt geändert oder gelöscht werden.':'Für diesen Tag gibt es noch keinen Planeintrag.';
+  togglePlanFields();
+  $('planEditorCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function savePlanEntry(){
+  const k=$('planDate').value,status=$('planStatus').value;
+  if(!k){alert('Bitte ein Datum auswählen.');return}
+  if(status==='work'&&!$('planTime').value){alert('Bitte die Startzeit des Dienstes eintragen.');return}
+  db.schedule[k]={time:status==='work'?$('planTime').value:'',raw:status==='work'?$('planRaw').value.trim():'',status,sourceFile:'Manuell',importedAt:new Date().toISOString()};
+  save();renderAll();editPlanEntry(k);$('planEditorState').textContent='Planeintrag gespeichert ✓';
+}
+function deletePlanEntry(){
+  const k=$('planDate').value;
+  if(!k||!db.schedule?.[k])return;
+  if(!confirm('Planeintrag für '+shortScheduleDate(k)+' wirklich löschen?'))return;
+  delete db.schedule[k];save();renderAll();resetPlanEditor(k);$('planEditorState').textContent='Planeintrag gelöscht.';
+}
+function planFromActual(){
+  const k=$('planDate').value;
+  if(!k){alert('Bitte zuerst ein Datum auswählen.');return}
+  const e=allEntries()[k];
+  if(!e){$('planEditorState').textContent='Für diesen Tag gibt es noch keine Ist-Zeiterfassung.';return}
+  $('planStatus').value=e.status||'work';
+  $('planTime').value=e.status==='work'?(e.start||''):'';
+  $('planRaw').value=e.status==='work'?objectsText(e.objects):'';
+  togglePlanFields();
+  $('planEditorState').textContent='Ist-Daten übernommen – jetzt noch „Dienst speichern“ tippen.';
+}
+
 function renderSchedule(){
   const root=$('scheduleCalendar'),stats=$('scheduleStats');if(!root)return;root.innerHTML='';if(stats)stats.innerHTML='';
   const meta=db.scheduleMeta||{},latest=meta.latestRange;
@@ -636,9 +724,9 @@ function renderSchedule(){
       const time=e?.time|| (status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—');
       const assignment=e?.raw&&!/^(AF!*|U|K)$/i.test(e.raw)?e.raw:(e?'':'Kein Eintrag');
       const badge=e?`<span class="badge ${scheduleBadgeClass(status)}">${scheduleStatusLabel(status)}</span>`:'';
-      const action=e&&status==='work'?'<button class="srAction" type="button">Übernehmen</button>':'';
+      const action=e?`<div class="srButtons"><button class="srEdit" type="button">Ändern</button>${status==='work'?'<button class="srAction" type="button">Plan → Ist</button>':''}</div>`:'';
       row.innerHTML=`<div class="srDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div><div class="srInfo"><div class="srTime">${escapeHtml(time)}</div><div class="srAssignment">${escapeHtml(assignment)}</div></div><div class="srSide">${badge}${action}</div>`;
-      const b=row.querySelector('.srAction');if(b)b.onclick=()=>takeScheduleToTime(k);
+      const edit=row.querySelector('.srEdit');if(edit)edit.onclick=()=>editPlanEntry(k);const b=row.querySelector('.srAction');if(b)b.onclick=()=>takeScheduleToTime(k);
       list.appendChild(row);
     });
     week.appendChild(list);root.appendChild(week);
@@ -847,11 +935,16 @@ $('downloadExcel').onclick=()=>downloadFile(excelFile());$('shareExcel').onclick
 $('exportBackup').onclick=()=>downloadFile(new File([JSON.stringify(db,null,2)],`Zeiterfassung_Backup_${activeMonth}.json`,{type:'application/json'}));
 $('importBackup').onclick=()=>$('backupFile').click();$('backupFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.months)throw new Error();db=x;save();setDefaults();renderAll();alert('Backup geladen ✓')}catch(err){alert('Backup konnte nicht gelesen werden.')}};r.readAsText(f)};
 $('clearMonth').onclick=()=>{if(confirm('Alle Einträge dieses Monats wirklich löschen?')){db.months[activeMonth]={entries:{},manualWorkdays:null};save();renderAll()}};
+$('planStatus').onchange=togglePlanFields;
+$('planDate').onchange=()=>{const k=$('planDate').value;if(db.schedule?.[k])editPlanEntry(k);else resetPlanEditor(k)};
+$('savePlanEntry').onclick=savePlanEntry;
+$('deletePlanEntry').onclick=deletePlanEntry;
+$('planFromActual').onclick=planFromActual;
 $('pickSchedulePdf').onclick=()=>$('schedulePdfFile').click();
 $('schedulePdfFile').onchange=e=>importScheduleFile(e.target.files?.[0]);
 $('cancelScheduleImport').onclick=()=>{pendingScheduleImport=[];$('schedulePreviewCard').classList.add('hidden');$('schedulePdfFile').value='';$('scheduleImportState').className='scheduleStatus';$('scheduleImportState').textContent='Import verworfen.'};
 $('saveScheduleImport').onclick=saveScheduleImport;
-setupMultiSelect('entryObjectSelect',()=>entryObjects,v=>entryObjects=v);setupMultiSelect('sheetObjectSelect',()=>sheetObjects,v=>sheetObjects=v);applyDesign();setDefaults();toggleEntryFields();renderAll();
+setupMultiSelect('entryObjectSelect',()=>entryObjects,v=>entryObjects=v);setupMultiSelect('sheetObjectSelect',()=>sheetObjects,v=>sheetObjects=v);applyDesign();setDefaults();toggleEntryFields();resetPlanEditor(dateKey(today));renderAll();
 })();
 </script>
 
