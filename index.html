@@ -326,7 +326,22 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
   .weekPlanDay:last-child{grid-column:1/-1}
 }
 
-/* ---------- v18 · Plan + Ist Kalender ---------- */
+/* ---------- v19 · Mehrere Häuser in Reihenfolge ---------- */
+.weekPlanWork{grid-template-columns:105px minmax(0,1fr);align-items:start}
+.weekObjectBox{min-width:0}
+.weekObjectRows{display:grid;gap:6px}
+.weekObjectRow{display:grid;grid-template-columns:minmax(0,1fr) 34px 34px 34px;gap:5px;align-items:center}
+.weekObjectRow select{min-width:0;width:100%}
+.weekObjectRow button{height:42px;min-height:42px;padding:0;font-size:14px;border-radius:10px}
+.addWeekObject{width:100%;margin-top:6px;min-height:38px;padding:7px 9px;font-size:9px}
+.objectOrderHint{margin-top:5px;font-size:8px;color:var(--muted);line-height:1.3}
+@media(max-width:390px){
+ .weekPlanWork{grid-template-columns:88px minmax(0,1fr)}
+ .weekObjectRow{grid-template-columns:minmax(0,1fr) 31px 31px 31px;gap:4px}
+ .weekObjectRow button{height:40px;min-height:40px}
+}
+
+/* ---------- v19 · Plan + Ist Kalender ---------- */
 .day{min-height:86px;padding:6px 5px}.day .mark{margin-top:5px}.dayPlan{display:block;margin-top:5px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--accent) 14%,transparent);border-left:3px solid var(--accent);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.dayPlan.free{background:color-mix(in srgb,var(--offbg) 80%,transparent);border-left-color:var(--line);color:var(--muted)}.dayActual{display:block;margin-top:4px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--ice) 45%,transparent);border-left:3px solid var(--blueText);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.calendarLegend{display:flex;gap:14px;align-items:center;margin-top:11px;font:800 9px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.calendarLegend span{display:flex;align-items:center;gap:5px}.calendarLegend i{display:inline-block;width:12px;height:8px;border-left:3px solid}.legendPlan{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:var(--accent)}.legendActual{background:color-mix(in srgb,var(--ice) 45%,transparent);border-color:var(--blueText)}
 @media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
@@ -415,7 +430,7 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
 
     <div class="card" id="planEditorCard">
       <div class="sectionKicker">05 · WOCHE EINTRAGEN</div>
-      <div class="cardTitle"><div><b>Eine ganze Woche planen</b><div class="muted">Mo–So auf einmal. Änderungen kannst du später genauso einfach wieder speichern.</div></div></div>
+      <div class="cardTitle"><div><b>Eine ganze Woche planen</b><div class="muted">Mo–So auf einmal. Pro Dienst kannst du mehrere Häuser in der richtigen Reihenfolge hinterlegen.</div></div></div>
 
       <div class="weekPlannerHead">
         <button id="prevPlanWeek" type="button" aria-label="Vorherige Woche">‹</button>
@@ -616,7 +631,7 @@ function renderCalendar(){
       if(plan.status==='off')planText='Frei';
       else if(plan.status==='vacation')planText='Urlaub';
       else if(plan.status==='sick')planText='Krank';
-      else planText=[plan.time,plan.raw].filter(Boolean).join(' · ')||'Dienst';
+      else planText=[plan.time,scheduleAssignmentText(plan)].filter(Boolean).join(' · ')||'Dienst';
     }
     let actualText='';
     if(e){
@@ -653,7 +668,7 @@ function scheduleObjects(raw){
     'KONTOR':'Kontor','AUßER HAUS':'Außer Haus','AUSSER HAUS':'Außer Haus'
   };
   const out=[];
-  String(raw||'').split(/[\/,+&]/).map(x=>x.trim().toUpperCase()).filter(Boolean).forEach(x=>{if(map[x]&&!out.includes(map[x]))out.push(map[x])});
+  String(raw||'').split(/[\/, +&→>]/).map(x=>x.trim().toUpperCase()).filter(Boolean).forEach(x=>{if(map[x]&&!out.includes(map[x]))out.push(map[x])});
   return out;
 }
 function scheduleStatusLabel(s){return s==='off'?'Frei':s==='vacation'?'Urlaub':s==='sick'?'Krank':'Dienst'}
@@ -666,9 +681,34 @@ function mondayOfDateKey(k){
   return dateKey(addDays(d,-day));
 }
 function planObjectOptions(current){
-  const values=['','Johanniskirche','Gartenhaus','Hyparschale','Büro','HGS','HGS/Joki','Deck 13','Kontor','Außer Haus','Getec','Messe','Seebühne'];
+  const values=['',...OBJECTS];
   if(current&&!values.includes(current))values.push(current);
-  return values.map(v=>`<option value="${escapeHtml(v)}"${v===current?' selected':''}>${v||'Objekt auswählen'}</option>`).join('');
+  return values.map(v=>`<option value="${escapeHtml(v)}"${v===current?' selected':''}>${v||'Haus auswählen'}</option>`).join('');
+}
+function scheduleEntryObjects(e){
+  if(!e)return[];
+  if(Array.isArray(e.objects)&&e.objects.length)return e.objects.filter(Boolean);
+  const parsed=scheduleObjects(e.raw||'');
+  return parsed.length?parsed:[];
+}
+function scheduleAssignmentText(e,separator=' → '){
+  if(!e)return'';
+  const objs=scheduleEntryObjects(e);
+  return objs.length?objs.join(separator):(e.raw||'');
+}
+function addPlanObjectRow(card,value=''){
+  const box=card.querySelector('[data-week-objects]'),row=document.createElement('div');
+  row.className='weekObjectRow';
+  row.innerHTML=`<select data-week-object>${planObjectOptions(value)}</select><button type="button" data-up title="Nach oben">↑</button><button type="button" data-down title="Nach unten">↓</button><button type="button" data-remove title="Entfernen">×</button>`;
+  row.querySelector('[data-up]').onclick=()=>{const prev=row.previousElementSibling;if(prev)box.insertBefore(row,prev)};
+  row.querySelector('[data-down]').onclick=()=>{const next=row.nextElementSibling;if(next)box.insertBefore(next,row)};
+  row.querySelector('[data-remove]').onclick=()=>{if(box.children.length>1)row.remove();else row.querySelector('select').value=''};
+  box.appendChild(row);
+}
+function renderPlanObjectRows(card,objects){
+  const box=card.querySelector('[data-week-objects]');box.innerHTML='';
+  const list=(objects||[]).filter(Boolean);
+  (list.length?list:['']).forEach(v=>addPlanObjectRow(card,v));
 }
 function renderPlanWeekEditor(anchorDate){
   if(!$('weekPlanner'))return;
@@ -693,10 +733,17 @@ function renderPlanWeekEditor(anchorDate){
     </div>
     <div class="weekPlanWork${status==='work'?'':' hidden'}">
       <div><label>Beginn</label><input data-week-time type="time" value="${escapeHtml(e?.time||'')}"></div>
-      <div><label>Objekt</label><select data-week-object>${planObjectOptions(e?.raw||'')}</select></div>
+      <div class="weekObjectBox">
+        <label>Häuser / Objekte</label>
+        <div class="weekObjectRows" data-week-objects></div>
+        <button class="addWeekObject" data-add-object type="button">+ weiteres Haus</button>
+        <div class="objectOrderHint">Die Reihenfolge zählt: 1. Haus → 2. Haus → 3. Haus …</div>
+      </div>
     </div>`;
+    renderPlanObjectRows(card,scheduleEntryObjects(e));
     const statusSelect=card.querySelector('[data-week-status]');
     statusSelect.onchange=()=>card.querySelector('.weekPlanWork').classList.toggle('hidden',statusSelect.value!=='work');
+    card.querySelector('[data-add-object]').onclick=()=>addPlanObjectRow(card,'');
     root.appendChild(card);
   }
 }
@@ -711,13 +758,20 @@ function savePlanWeek(){
     const k=card.dataset.date,status=card.querySelector('[data-week-status]').value;
     if(status==='none'){delete db.schedule[k];return}
     const time=card.querySelector('[data-week-time]')?.value||'';
-    const raw=card.querySelector('[data-week-object]')?.value||'';
+    const objects=[...card.querySelectorAll('[data-week-object]')].map(x=>x.value).filter(Boolean).filter((v,i,a)=>a.indexOf(v)===i);
     if(status==='work'&&!time){missingTime=k;return}
-    db.schedule[k]={time:status==='work'?time:'',raw:status==='work'?raw:'',status,sourceFile:'Manuell',importedAt:new Date().toISOString()};
+    db.schedule[k]={
+      time:status==='work'?time:'',
+      raw:status==='work'?objects.join(' / '):'',
+      objects:status==='work'?objects:[],
+      status,
+      sourceFile:'Manuell',
+      importedAt:new Date().toISOString()
+    };
   });
   if(missingTime){alert('Bitte bei '+shortScheduleDate(missingTime)+' noch eine Startzeit eintragen.');return}
   save();renderAll();renderPlanWeekEditor($('planWeekStart').value);
-  $('planEditorState').textContent='Woche gespeichert ✓';
+  $('planEditorState').textContent='Woche gespeichert ✓ · Reihenfolge der Häuser wurde übernommen.';
 }
 function editPlanEntry(k){
   renderPlanWeekEditor(k);
@@ -741,7 +795,7 @@ function renderSchedule(){
   const todayKey=dateKey(today),next=work.find(x=>x.k>=todayKey)||work[0];
   if(stats){
     const nextTitle=next?`${shortScheduleDate(next.k)}${next.e?.time?' · '+next.e.time:''}`:'Kein Dienst';
-    const nextSub=next?.e?.raw||'';
+    const nextSub=scheduleAssignmentText(next?.e);
     stats.innerHTML=`<div class="scheduleStat"><span>Dienste</span><b>${work.length}</b></div><div class="scheduleStat"><span>Freie Tage</span><b>${free.length}</b></div><div class="scheduleStat wide"><div><span>Nächster Dienst</span><b>${escapeHtml(nextTitle)}</b>${nextSub?`<small>${escapeHtml(nextSub)}</small>`:''}</div><span class="badge b-work">NÄCHSTES</span></div>`;
   }
   const firstMonday=mondayOfDateKey(keys[0]),lastMonday=mondayOfDateKey(keys[keys.length-1]);
@@ -756,7 +810,7 @@ function renderSchedule(){
       const row=document.createElement('div');row.className='scheduleRow '+(status||'empty');if(k===todayKey)row.classList.add('today');
       const d=dateFromKey(k),wd=new Intl.DateTimeFormat('de-DE',{weekday:'short'}).format(d),dm=new Intl.DateTimeFormat('de-DE',{day:'2-digit',month:'2-digit'}).format(d);
       const time=e?.time||(status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—');
-      const assignment=e?.raw&&!/^(AF!*|U|K)$/i.test(e.raw)?e.raw:(e?'':'Kein Eintrag');
+      const assignment=e&&status==='work'?(scheduleAssignmentText(e)||'Kein Haus'):(e?'':'Kein Eintrag');
       const badge=e?`<span class="badge ${scheduleBadgeClass(status)}">${scheduleStatusLabel(status)}</span>`:'';
       row.innerHTML=`<div class="srDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div><div class="srInfo"><div class="srTime">${escapeHtml(time)}</div><div class="srAssignment">${escapeHtml(assignment)}</div></div><div class="srSide">${badge}<div class="srEditHint">antippen<br>zum Ändern</div></div>`;
       row.onclick=()=>editPlanEntry(k);list.appendChild(row);
@@ -773,7 +827,7 @@ function takeScheduleToTime(k){
   $('entryStatus').value=status;
   $('entryStart').value=status==='work'?(e.time||''):'';
   $('entryEnd').value='';
-  entryObjects=status==='work'?scheduleObjects(e.raw):[];
+  entryObjects=status==='work'?scheduleEntryObjects(e):[];
   $('entryNote').value=status==='work'&&e.raw&&!entryObjects.length?`Dienstplan: ${e.raw}`:'';
   $('entryObjectSelect')._draw?.();toggleEntryFields();activateTab('times');
   window.scrollTo({top:document.querySelector('#times').offsetTop-12,behavior:'smooth'});
@@ -909,7 +963,7 @@ function saveScheduleImport(){
   rows.forEach(e=>delete db.schedule[e.date]);
   rows.forEach(e=>{
     const status=scheduleStatusFromRaw(e.raw,e.time);
-    if(status)db.schedule[e.date]={time:e.time||'',raw:e.raw||'',status,sourceFile:e.sourceFile||'',importedAt:new Date().toISOString()};
+    if(status)db.schedule[e.date]={time:e.time||'',raw:e.raw||'',objects:status==='work'?scheduleObjects(e.raw):[],status,sourceFile:e.sourceFile||'',importedAt:new Date().toISOString()};
   });
   db.scheduleMeta.latestRange={start,end,sourceFile:rows[0].sourceFile||'',importedAt:new Date().toISOString()};
   if(!Array.isArray(db.scheduleMeta.imports))db.scheduleMeta.imports=[];
