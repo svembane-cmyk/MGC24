@@ -160,48 +160,132 @@ html[data-theme="afterhours"] input,html[data-theme="afterhours"] select,html[da
 html[data-theme="afterhours"] select option{background:#242130;color:#f5edf6}
 html[data-theme="afterhours"] .stat{border-left:0}
 
+
+/* ---------- HEADER v13 · sechs wirklich eigene Looks ---------- */
+.ledgerHero{isolation:isolate;transition:background .25s ease,border-radius .25s ease,box-shadow .25s ease,transform .25s ease}
+.heroDecor{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}.heroDecor span{position:absolute;display:block}.heroCopy{min-width:0;position:relative;z-index:2}.heroTop,.heroMain,.heroRule{position:relative;z-index:3}
+#heroWord{white-space:nowrap}
+
+/* Time Ledger — Stempelkarte / Arbeitsjournal */
+html[data-theme="ledger"] .ledgerHero{border-radius:4px;background:#17282b;box-shadow:7px 7px 0 #e76043;padding:18px 18px 15px}
+html[data-theme="ledger"] .heroDecor .decorA{width:180px;height:180px;border:26px solid rgba(185,211,208,.11);border-radius:50%;right:-75px;top:12px}
+html[data-theme="ledger"] .heroDecor .decorB{left:0;right:0;bottom:48px;height:1px;background:rgba(255,255,255,.08)}
+html[data-theme="ledger"] .heroDecor .decorC{width:5px;height:38px;background:#e76043;left:18px;bottom:13px}
+html[data-theme="ledger"] .heroMain h1{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-size:64px;font-weight:950;letter-spacing:-.06em}
+html[data-theme="ledger"] .clockMark{border-radius:50%;transform:rotate(-10deg)}
+
+/* Soft Studio — Editorial pastel card */
+html[data-theme="studio"] .ledgerHero{min-height:198px;border:1px solid #ded5e8;border-radius:28px;background:linear-gradient(135deg,#efe8f8 0%,#f8edf2 50%,#e9f1fb 100%);box-shadow:0 18px 35px rgba(72,60,92,.12);padding:20px 20px 16px;color:#34344b}
+html[data-theme="studio"] .ledgerHero:before,html[data-theme="studio"] .ledgerHero:after{content:none}
+html[data-theme="studio"] .heroDecor .decorA{width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.55);right:-25px;top:-35px}
+html[data-theme="studio"] .heroDecor .decorB{width:72px;height:72px;border-radius:24px;background:rgba(239,127,145,.12);right:38px;bottom:26px;transform:rotate(18deg)}
+html[data-theme="studio"] .heroDecor .decorC{width:88px;height:20px;border-radius:999px;background:rgba(169,190,233,.28);left:20px;bottom:20px}
+html[data-theme="studio"] .eyebrow{color:#7d7195}html[data-theme="studio"] .heroMain{align-items:center}
+html[data-theme="studio"] .heroMain h1{font-family:ui-rounded,"SF Pro Rounded","Avenir Next",sans-serif;font-size:58px;letter-spacing:-.07em;font-weight:850;color:#34344b;text-shadow:none}
+html[data-theme="studio"] .heroMain p{font-size:12px;color:#7a748a;letter-spacing:.015em}
+html[data-theme="studio"] .stamp{width:auto;min-width:58px;height:34px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.65);border:1px solid rgba(90,82,115,.17);color:#69617d}
+html[data-theme="studio"] .clockMark{width:58px;height:58px;border-radius:18px;background:#fff7fb;border:1px solid #eadde8;color:#ef7f91;box-shadow:0 8px 20px rgba(92,72,99,.08);transform:rotate(5deg);font-size:26px}
+html[data-theme="studio"] .heroRule{border-top:0;padding-top:6px;margin-top:18px;color:#6f6882}html[data-theme="studio"] .heroRule span:first-child{letter-spacing:.08em}
+
+/* Espresso Office — coffee ticket / brass */
+html[data-theme="espresso"] .ledgerHero{min-height:205px;border:1px solid #211712;border-radius:18px;background:linear-gradient(145deg,#2f211a 0%,#4a3328 70%,#5b3a2b 100%);box-shadow:0 16px 34px rgba(48,31,22,.24);padding:18px 18px 15px;color:#f7ead7}
+html[data-theme="espresso"] .ledgerHero:before,html[data-theme="espresso"] .ledgerHero:after{content:none}
+html[data-theme="espresso"] .heroDecor .decorA{width:122px;height:122px;border:18px solid rgba(215,179,141,.12);border-radius:50%;right:20px;top:35px}
+html[data-theme="espresso"] .heroDecor .decorB{width:96px;height:54px;border:1px solid rgba(247,234,215,.15);right:-15px;bottom:22px;transform:rotate(-8deg)}
+html[data-theme="espresso"] .heroDecor .decorC{left:18px;top:58px;width:52px;height:2px;background:#b77750;box-shadow:0 7px 0 #b77750,0 14px 0 #b77750}
+html[data-theme="espresso"] .eyebrow{color:#d7b38d}html[data-theme="espresso"] .heroMain{align-items:flex-end}
+html[data-theme="espresso"] .heroMain h1{font-family:Georgia,"Times New Roman",serif;font-size:58px;letter-spacing:-.075em;font-weight:700;color:#fff2dd}
+html[data-theme="espresso"] .heroMain p{font-family:Georgia,"Times New Roman",serif;color:#d8c4ae;font-style:italic;letter-spacing:0;font-size:12px}
+html[data-theme="espresso"] .stamp{border-radius:3px;width:52px;height:38px;border:1px solid #b77750;color:#f1d7ba;background:rgba(0,0,0,.08)}
+html[data-theme="espresso"] .clockMark{width:58px;height:58px;border:1px solid #b77750;color:#d7b38d;border-radius:50%;background:rgba(0,0,0,.10);font-size:32px;transform:none}
+html[data-theme="espresso"] .heroRule{border-top-color:rgba(247,234,215,.18);color:#d7b38d}
+
+/* Electric Shift — angled control panel */
+html[data-theme="electric"] .ledgerHero{min-height:196px;border:0;border-radius:14px;background:linear-gradient(115deg,#101729 0 67%,#5577ff 67% 78%,#ff5c35 78% 100%);box-shadow:10px 10px 0 rgba(16,23,41,.16);padding:18px 18px 14px;color:white;clip-path:polygon(0 0,100% 0,100% 88%,94% 100%,0 100%)}
+html[data-theme="electric"] .ledgerHero:before,html[data-theme="electric"] .ledgerHero:after{content:none}
+html[data-theme="electric"] .heroDecor .decorA{left:18px;right:18px;top:53px;height:1px;background:rgba(255,255,255,.14)}
+html[data-theme="electric"] .heroDecor .decorB{width:90px;height:90px;border:1px solid rgba(255,255,255,.18);right:50px;bottom:-28px;transform:rotate(45deg)}
+html[data-theme="electric"] .heroDecor .decorC{width:42px;height:6px;background:#ff5c35;left:18px;bottom:18px;box-shadow:49px 0 0 #5577ff}
+html[data-theme="electric"] .eyebrow{color:#9db2ff}html[data-theme="electric"] .heroMain h1{font-family:"Avenir Next Condensed","Arial Narrow",sans-serif;font-size:66px;letter-spacing:-.07em;font-style:italic;font-weight:950}
+html[data-theme="electric"] .heroMain p{color:#c9d5ff;text-transform:uppercase;font:800 10px/1.4 ui-monospace,monospace;letter-spacing:.12em}
+html[data-theme="electric"] .stamp{border-radius:5px;width:42px;height:42px;border:0;background:#5577ff;color:#fff;box-shadow:4px 4px 0 #0a0f1e}
+html[data-theme="electric"] .clockMark{width:58px;height:58px;border:0;border-radius:9px;background:#ff5c35;color:white;box-shadow:5px 5px 0 #0a0f1e;transform:rotate(3deg);font-size:30px}
+html[data-theme="electric"] .heroRule{border-top:0;color:#bfcaff;padding-top:0;margin-top:20px}html[data-theme="electric"] #heroMonthLabel{color:#fff}
+
+/* Sunday Paper — newspaper masthead */
+html[data-theme="paper"] .ledgerHero{min-height:210px;border:0;border-top:3px solid #344438;border-bottom:3px double #344438;border-radius:0;background:#f7f2e7;box-shadow:none;padding:13px 4px 12px;color:#344438}
+html[data-theme="paper"] .ledgerHero:before,html[data-theme="paper"] .ledgerHero:after{content:none}
+html[data-theme="paper"] .heroDecor .decorA{left:4px;right:4px;top:48px;height:1px;background:#344438}
+html[data-theme="paper"] .heroDecor .decorB{left:4px;right:4px;bottom:42px;height:1px;background:#344438}
+html[data-theme="paper"] .heroDecor .decorC{width:64px;height:64px;border:2px solid rgba(52,68,56,.30);border-radius:50%;right:18px;top:74px}
+html[data-theme="paper"] .heroTop{padding:0 8px 9px}html[data-theme="paper"] .eyebrow{color:#344438;font-family:Georgia,serif;letter-spacing:.12em}
+html[data-theme="paper"] .heroMain{padding:11px 8px 8px;align-items:center}html[data-theme="paper"] .heroMain h1{font-family:Didot,"Bodoni 72",Georgia,serif;font-size:64px;font-weight:700;letter-spacing:-.07em;color:#344438}
+html[data-theme="paper"] .heroMain p{font-family:Georgia,serif;font-size:11px;color:#6c766d;letter-spacing:.02em}
+html[data-theme="paper"] .stamp{border-radius:0;width:auto;height:30px;padding:0 8px;border:1px solid #344438;color:#344438;background:transparent;font-family:Georgia,serif}
+html[data-theme="paper"] .clockMark{width:48px;height:48px;border:0;border-radius:0;background:transparent;color:#c96e45;transform:none;font-size:28px}
+html[data-theme="paper"] .heroRule{padding:10px 8px 0;margin-top:9px;border-top:1px solid #344438;color:#344438;font-family:Georgia,serif;letter-spacing:.06em}
+
+/* After Hours — neon lounge / moonlight */
+html[data-theme="afterhours"] .ledgerHero{min-height:202px;border:1px solid #3b3548;border-radius:26px;background:radial-gradient(circle at 78% 22%,rgba(141,108,255,.24),transparent 27%),radial-gradient(circle at 92% 80%,rgba(255,120,150,.18),transparent 30%),linear-gradient(145deg,#0f0d16,#211a32 58%,#35213c);box-shadow:0 20px 42px rgba(0,0,0,.36);padding:19px 19px 15px;color:#fff4fb}
+html[data-theme="afterhours"] .ledgerHero:before,html[data-theme="afterhours"] .ledgerHero:after{content:none}
+html[data-theme="afterhours"] .heroDecor .decorA{width:94px;height:94px;border-radius:50%;border:1px solid rgba(207,191,255,.28);right:22px;top:64px;box-shadow:0 0 30px rgba(141,108,255,.14)}
+html[data-theme="afterhours"] .heroDecor .decorB{width:6px;height:6px;border-radius:50%;background:#fff;left:62%;top:32px;box-shadow:43px 20px 0 rgba(255,255,255,.8),-25px 45px 0 rgba(255,255,255,.45),62px 68px 0 rgba(255,255,255,.5),-48px 92px 0 rgba(255,255,255,.3)}
+html[data-theme="afterhours"] .heroDecor .decorC{width:86px;height:2px;background:linear-gradient(90deg,#8d6cff,#ff7896);left:19px;bottom:18px;box-shadow:0 0 12px rgba(255,120,150,.7)}
+html[data-theme="afterhours"] .eyebrow{color:#cfbfff}html[data-theme="afterhours"] .heroMain h1{font-family:Didot,"Bodoni 72",Georgia,serif;font-size:62px;font-weight:700;letter-spacing:-.055em;color:#fff4fb;text-shadow:0 0 18px rgba(141,108,255,.12)}
+html[data-theme="afterhours"] .heroMain p{color:#c4b8ce;font-size:11px;letter-spacing:.025em}
+html[data-theme="afterhours"] .stamp{border-radius:999px;width:44px;height:44px;border:1px solid #8d6cff;background:rgba(141,108,255,.10);color:#ffb2c4;box-shadow:0 0 16px rgba(141,108,255,.14)}
+html[data-theme="afterhours"] .clockMark{width:58px;height:58px;border:1px solid #8d6cff;border-radius:50%;background:rgba(255,255,255,.03);color:#ff7896;box-shadow:0 0 24px rgba(141,108,255,.22);transform:none;font-size:30px}
+html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);color:#c6b9d4}
+
+@media(max-width:390px){
+  html[data-theme="ledger"] .heroMain h1,html[data-theme="electric"] .heroMain h1{font-size:58px}
+  html[data-theme="studio"] .heroMain h1,html[data-theme="espresso"] .heroMain h1,html[data-theme="afterhours"] .heroMain h1{font-size:54px}
+  html[data-theme="paper"] .heroMain h1{font-size:58px}
+  .heroMain p{max-width:230px}
+}
+
 /* Theme picker */
 .designCard .cardTitle{margin-bottom:12px}.themeGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.themeChoice{position:relative;min-height:105px;padding:10px;text-align:left;border:1px solid var(--line);background:var(--field);border-radius:14px;box-shadow:none;overflow:hidden}.themeChoice.active{outline:2px solid var(--accent);outline-offset:1px}.themeChoice b{display:block;margin-top:9px;font-size:12px}.themeChoice small{display:block;color:var(--muted);font-size:9px;margin-top:2px;line-height:1.25}.themeMini{height:48px;border-radius:9px;position:relative;overflow:hidden;border:1px solid rgba(0,0,0,.08)}.themeMini:before{content:"";position:absolute;left:8px;right:8px;top:8px;height:13px;border-radius:4px;background:var(--m2)}.themeMini:after{content:"";position:absolute;left:8px;bottom:7px;width:42%;height:17px;border-radius:4px;background:var(--m3);box-shadow:46px 0 0 var(--m4)}.themeChoice[data-theme-choice="ledger"]{--m1:#ebe5da;--m2:#18292c;--m3:#e76043;--m4:#b9d3d0}.themeChoice[data-theme-choice="studio"]{--m1:#f2eff7;--m2:#e4d8f2;--m3:#ef7f91;--m4:#a9bee9}.themeChoice[data-theme-choice="espresso"]{--m1:#e9dfd3;--m2:#35271f;--m3:#a5543a;--m4:#d7b38d}.themeChoice[data-theme-choice="electric"]{--m1:#e9ebf1;--m2:#101729;--m3:#ff5c35;--m4:#5577ff}.themeChoice[data-theme-choice="paper"]{--m1:#f3f0e8;--m2:#344438;--m3:#c96e45;--m4:#dfe8d3}.themeChoice[data-theme-choice="afterhours"]{--m1:#171522;--m2:#29233b;--m3:#ff7896;--m4:#8d6cff}.themeMini{background:var(--m1)}
 .themeCurrent{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--soft);padding:9px 10px;border-radius:10px;margin:10px 0 2px}.themeCurrent b{font-size:12px}.themeCurrent span{font-size:10px;color:var(--muted)}
 @media(max-width:360px){.themeGrid{grid-template-columns:1fr}.themeChoice{min-height:92px}}
 
 
-/* ---------- DIENSTPLAN v8 ---------- */
+/* ---------- DIENSTPLAN v11 · mobile Import-Vorschau ---------- */
 .hidden{display:none!important}
-.scheduleUploadBox{border:1px dashed var(--line);background:color-mix(in srgb,var(--soft) 65%,transparent);padding:14px;text-align:center}
-.scheduleUploadBox .uploadIcon{font-size:30px;line-height:1;margin-bottom:8px}
-.scheduleUploadBox button{width:100%;margin-top:10px}
-.scheduleStatus{margin-top:9px;font-size:11px;color:var(--muted);line-height:1.45}
-.scheduleStatus.working{color:var(--accent);font-weight:800}
-.scheduleStatus.error{color:var(--redText);font-weight:800}
-.scheduleStatus.ok{color:var(--greenText);font-weight:800}
-.schedulePreviewList{display:grid;gap:7px;margin-top:10px}
-.schedulePreviewRow{display:grid;grid-template-columns:94px 88px 1fr;gap:7px;align-items:end;border-top:1px dashed var(--line);padding-top:8px}
-.schedulePreviewRow:first-child{border-top:0;padding-top:0}
-.schedulePreviewDate{align-self:center}
-.schedulePreviewDate b{display:block;font-size:12px}.schedulePreviewDate small{font-size:9px;color:var(--muted)}
-.schedulePreviewRow input{min-width:0;padding:9px 8px;min-height:40px}
-.scheduleCalendar{display:grid;gap:10px;margin-top:12px}
-.scheduleWeek{border-top:1px solid var(--line);padding-top:10px}
-.scheduleWeek:first-child{border-top:0;padding-top:0}
-.scheduleWeekTitle{font:900 9px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-.scheduleDays{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
-.scheduleDay{border:1px solid var(--line);background:var(--field);padding:10px;min-height:118px;display:flex;flex-direction:column;gap:5px;position:relative}
-.scheduleDay.today{outline:2px solid var(--accent);outline-offset:1px}
-.scheduleDay.off{background:var(--offbg)}.scheduleDay.vacation{background:var(--green)}.scheduleDay.sick{background:var(--red)}
-.scheduleDay .sdTop{display:flex;align-items:flex-start;justify-content:space-between;gap:6px}
-.scheduleDay .sdDate{font:900 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase}
-.scheduleDay .sdTime{font-size:20px;font-weight:900;letter-spacing:-.04em;margin-top:3px}
-.scheduleDay .sdAssignment{font-size:11px;font-weight:800;line-height:1.3;overflow-wrap:anywhere}
-.scheduleDay .sdSource{font-size:8px;color:var(--muted);margin-top:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.scheduleDay .sdAction{margin-top:5px;padding:7px 6px;font-size:9px;width:100%}
-.scheduleEmpty{padding:20px 4px;text-align:center;color:var(--muted);font-size:12px;line-height:1.5}
-.scheduleRange{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.scheduleRange{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .scheduleRange strong{font-size:12px}
-@media(max-width:390px){
-  .schedulePreviewRow{grid-template-columns:82px 78px 1fr;gap:5px}
-  .scheduleDays{grid-template-columns:1fr 1fr}
-}
+.scheduleStats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0 2px}
+.scheduleStat{border:1px solid var(--line);background:var(--soft);padding:10px 11px;min-height:64px}
+.scheduleStat.wide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.scheduleStat span{display:block;font:900 8px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.scheduleStat b{display:block;font-size:20px;line-height:1.05;margin-top:5px;letter-spacing:-.03em}
+.scheduleStat.wide b{font-size:14px;margin-top:3px}.scheduleStat.wide small{display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.scheduleCalendar{display:grid;gap:15px;margin-top:14px}
+.scheduleWeek{display:grid;gap:7px}
+.scheduleWeekTitle{font:900 9px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding:0 2px}
+.scheduleList{display:grid;border:1px solid var(--line);background:var(--field)}
+.scheduleRow{display:grid;grid-template-columns:72px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px;border-top:1px solid var(--line);position:relative;min-height:68px}
+.scheduleRow:first-child{border-top:0}
+.scheduleRow:before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:4px;background:var(--accent)}
+.scheduleRow.today{outline:2px solid var(--accent);outline-offset:1px;z-index:1}
+.scheduleRow.off{background:color-mix(in srgb,var(--offbg) 82%,var(--field));min-height:52px;color:var(--muted)}
+.scheduleRow.off:before{background:var(--line)}
+.scheduleRow.vacation{background:color-mix(in srgb,var(--green) 65%,var(--field))}.scheduleRow.vacation:before{background:var(--greenText)}
+.scheduleRow.sick{background:color-mix(in srgb,var(--red) 65%,var(--field))}.scheduleRow.sick:before{background:var(--redText)}
+.srDate b{display:block;font:900 12px/1.15 ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;color:var(--text)}
+.srDate span{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+.srInfo{min-width:0}.srTime{font-size:20px;font-weight:950;letter-spacing:-.045em;line-height:1}.scheduleRow.off .srTime{font-size:14px;letter-spacing:0}.srAssignment{font-size:11px;font-weight:800;line-height:1.25;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.scheduleRow.off .srAssignment{display:none}
+.srSide{display:flex;flex-direction:column;align-items:flex-end;gap:6px}.srAction{padding:6px 8px;font-size:8px;min-height:28px;white-space:nowrap}.scheduleRow.off .srAction{display:none}
+.scheduleEmpty{padding:24px 6px;text-align:center;color:var(--muted);font-size:12px;line-height:1.5}
+.scheduleImportCard .cardTitle{margin-bottom:8px}
+.scheduleUploadBox{border:1px dashed var(--line);background:color-mix(in srgb,var(--soft) 58%,transparent);padding:12px;text-align:left}
+.scheduleUploadHead{display:flex;align-items:center;gap:9px}.scheduleUploadBox .uploadIcon{font-size:22px;line-height:1}.scheduleUploadText b{display:block;font-size:12px}.scheduleUploadText .muted{font-size:10px;margin-top:2px}
+.scheduleUploadBox button{width:100%;margin-top:10px}
+.scheduleStatus{margin-top:8px;font-size:10px;color:var(--muted);line-height:1.4;text-align:center}
+.scheduleStatus.working{color:var(--accent);font-weight:800}.scheduleStatus.error{color:var(--redText);font-weight:800}.scheduleStatus.ok{color:var(--greenText);font-weight:800}
+.schedulePreviewList{display:grid;gap:9px;margin-top:10px}.schedulePreviewRow{display:grid;grid-template-columns:1fr;gap:8px;border-top:1px dashed var(--line);padding-top:10px}.schedulePreviewRow:first-child{border-top:0;padding-top:0}.schedulePreviewDate{display:flex;flex-direction:column;gap:3px;padding-bottom:2px}.schedulePreviewDate b{display:block;font-size:13px}.schedulePreviewDate small{font-size:10px;color:var(--muted)}.schedulePreviewFields{display:grid;grid-template-columns:1fr;gap:8px;min-width:0}.schedulePreviewField,.schedulePreviewAssignment{min-width:0}.schedulePreviewRow input{min-width:0;padding:9px 8px;min-height:40px}.schedulePreviewNoTime{min-height:40px;display:flex;align-items:center}.schedulePreviewNoTime .badge{font-size:9px;padding:7px 9px}.schedulePreviewHint{font-size:10px;color:var(--muted);margin-top:2px}
+@media(min-width:430px){.schedulePreviewFields{grid-template-columns:110px minmax(0,1fr);align-items:end}}
+@media(max-width:390px){.scheduleRow{grid-template-columns:64px minmax(0,1fr) auto;gap:7px;padding:9px}.srAction{padding:6px;font-size:7px}}
 
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
 
@@ -215,9 +299,10 @@ html[data-theme="afterhours"] .stat{border-left:0}
 <body>
 <div class="app">
   <header class="ledgerHero">
-    <div class="heroTop"><span class="eyebrow" id="themeBrand">MGC / TIME LEDGER</span><span class="stamp">08H</span></div>
-    <div class="heroMain"><div><h1>ZEIT</h1><p>Arbeitszeit · Urlaub · Krank</p></div><div class="clockMark">◷</div></div>
-    <div class="heroRule"><span>Monthly work log</span><span id="heroMonthLabel">Monat</span></div>
+    <div class="heroDecor" aria-hidden="true"><span class="decorA"></span><span class="decorB"></span><span class="decorC"></span></div>
+    <div class="heroTop"><span class="eyebrow" id="themeBrand">MGC / TIME LEDGER</span><span class="stamp" id="heroStamp">08H</span></div>
+    <div class="heroMain"><div class="heroCopy"><h1 id="heroWord">ZEIT</h1><p id="heroSubline">Arbeitszeit · Urlaub · Krank</p></div><div class="clockMark" id="heroClock">◷</div></div>
+    <div class="heroRule"><span id="heroRuleLabel">Monthly work log</span><span id="heroMonthLabel">Monat</span></div>
   </header>
 
   <div class="card">
@@ -280,11 +365,17 @@ html[data-theme="afterhours"] .stat{border-left:0}
   <section id="schedulePanel" class="panel hidden">
     <div class="card">
       <div class="sectionKicker">04 · Dienstplan</div>
-      <div class="cardTitle"><div><b>Mein Dienstplan</b><div class="muted">PDF auswählen – die App liest nur die Zeilen von <b>Vembane, Sabrina</b> aus.</div></div></div>
+      <div class="cardTitle"><div><b>Deine nächsten 2 Wochen</b><div class="muted">Nur dein persönlicher Plan · Planung und Ist-Zeit bleiben getrennt.</div></div></div>
+      <div class="scheduleRange"><strong id="scheduleRangeLabel">Noch kein Dienstplan gespeichert</strong><span class="badge b-work">PLAN</span></div>
+      <div id="scheduleStats" class="scheduleStats"></div>
+      <div id="scheduleCalendar" class="scheduleCalendar"></div>
+    </div>
+
+    <div class="card scheduleImportCard">
+      <div class="sectionKicker">05 · PLAN AKTUALISIEREN</div>
+      <div class="cardTitle"><div><b>Neuen Dienstplan laden</b><div class="muted">Die App liest ausschließlich <b>Vembane, Sabrina</b> aus.</div></div></div>
       <div class="scheduleUploadBox">
-        <div class="uploadIcon">▤</div>
-        <b>Neuen 2‑Wochen‑Plan importieren</b>
-        <div class="muted" style="margin-top:5px">Der Plan wird auf deinem Gerät ausgewertet. Vor dem Speichern siehst du immer eine Vorschau.</div>
+        <div class="scheduleUploadHead"><div class="uploadIcon">▤</div><div class="scheduleUploadText"><b>2‑Wochen‑PDF importieren</b><div class="muted">Vor dem Speichern siehst du immer eine Vorschau.</div></div></div>
         <button id="pickSchedulePdf" class="primary" type="button">PDF-Dienstplan auswählen</button>
         <input id="schedulePdfFile" type="file" accept="application/pdf,.pdf" hidden>
         <div id="scheduleImportState" class="scheduleStatus">Noch kein PDF ausgewählt.</div>
@@ -299,13 +390,6 @@ html[data-theme="afterhours"] .stat{border-left:0}
         <button id="cancelScheduleImport" type="button">Verwerfen</button>
         <button id="saveScheduleImport" class="primary" type="button">Dienstplan übernehmen</button>
       </div>
-    </div>
-
-    <div class="card">
-      <div class="sectionKicker">05 · DIENSTPLANKALENDER</div>
-      <div class="cardTitle"><div><b>Deine nächsten Dienste</b><div class="muted">Planung und tatsächliche Arbeitszeit bleiben getrennt.</div></div></div>
-      <div class="scheduleRange"><strong id="scheduleRangeLabel">Noch kein Dienstplan gespeichert</strong><span class="badge b-work">PLAN</span></div>
-      <div id="scheduleCalendar" class="scheduleCalendar"></div>
     </div>
   </section>
 
@@ -385,12 +469,12 @@ const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
 const monthKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}`;
 const today=new Date();
 const THEMES={
-  ledger:{label:'Time Ledger',brand:'TIME LEDGER',meta:'#18292c',desc:'Modernes Arbeitsjournal mit Stempelkarte.'},
-  studio:{label:'Soft Studio',brand:'SOFT STUDIO',meta:'#e8ddf4',desc:'Sanft, hell und ruhig mit Flieder und Powder Blue.'},
-  espresso:{label:'Espresso Office',brand:'ESPRESSO OFFICE',meta:'#35271f',desc:'Warme Kaffee-, Leder- und Messingtöne.'},
-  electric:{label:'Electric Shift',brand:'ELECTRIC SHIFT',meta:'#101729',desc:'Kräftig, modern und kontrastreich mit Cobalt und Orange.'},
-  paper:{label:'Sunday Paper',brand:'SUNDAY PAPER',meta:'#344438',desc:'Ruhiges Editorial-Design wie ein schönes Wochenendmagazin.'},
-  afterhours:{label:'After Hours',brand:'AFTER HOURS',meta:'#171522',desc:'Dunkles Plum, Blush und ein Hauch Neon für späte Schichten.'}
+  ledger:{label:'Time Ledger',brand:'TIME LEDGER',meta:'#18292c',desc:'Modernes Arbeitsjournal mit Stempelkarte.',heroWord:'ZEIT',heroSub:'Arbeitszeit · Urlaub · Krank',heroStamp:'08H',heroClock:'◷',heroRule:'Monthly work log'},
+  studio:{label:'Soft Studio',brand:'SOFT STUDIO',meta:'#e8ddf4',desc:'Sanft, hell und ruhig mit Flieder und Powder Blue.',heroWord:'ZEIT',heroSub:'Sanft geplant. Klar im Blick.',heroStamp:'SOFT',heroClock:'✦',heroRule:'Soft work journal'},
+  espresso:{label:'Espresso Office',brand:'ESPRESSO OFFICE',meta:'#35271f',desc:'Warme Kaffee-, Leder- und Messingtöne.',heroWord:'ZEIT',heroSub:'Schichten · Stunden · Überblick',heroStamp:'MGC',heroClock:'◒',heroRule:'Daily work record'},
+  electric:{label:'Electric Shift',brand:'ELECTRIC SHIFT',meta:'#101729',desc:'Kräftig, modern und kontrastreich mit Cobalt und Orange.',heroWord:'ZEIT',heroSub:'Shift on. Alles im Takt.',heroStamp:'ON',heroClock:'↗',heroRule:'Shift control'},
+  paper:{label:'Sunday Paper',brand:'SUNDAY PAPER',meta:'#344438',desc:'Ruhiges Editorial-Design wie ein schönes Wochenendmagazin.',heroWord:'ZEIT',heroSub:'Dein Arbeitsmonat in einer Ausgabe.',heroStamp:'ED.',heroClock:'✦',heroRule:'Work & time edition'},
+  afterhours:{label:'After Hours',brand:'AFTER HOURS',meta:'#171522',desc:'Dunkles Plum, Blush und ein Hauch Neon für späte Schichten.',heroWord:'ZEIT',heroSub:'Auch späte Schichten bleiben im Blick.',heroStamp:'PM',heroClock:'☾',heroRule:'Late shift log'}
 };
 const defaults={hoursPerDay:8,theme:'ledger',font:'modern',designVersion:8,months:{},schedule:{},scheduleMeta:{}};
 let db;
@@ -400,7 +484,7 @@ let activeMonth=monthKey(today), editingDate=null, sheetStatus='work';
 let entryObjects=[],sheetObjects=[],pendingScheduleImport=[];
 
 function save(){localStorage.setItem(KEY,JSON.stringify(db))}
-function applyDesign(){const key=THEMES[db.theme]?db.theme:'ledger',cfg=THEMES[key];db.theme=key;document.documentElement.dataset.theme=key;document.documentElement.dataset.font=db.font||'modern';const t=document.querySelector('meta[name=theme-color]');if(t)t.content=cfg.meta;const b=$('themeBrand');if(b)b.textContent='MGC / '+cfg.brand;const f=$('footerThemeName');if(f)f.textContent=cfg.brand;const n=$('themeCurrentName');if(n)n.textContent=cfg.label;const d=$('themeCurrentDescription');if(d)d.textContent=cfg.desc;document.querySelectorAll('.themeChoice').forEach(x=>x.classList.toggle('active',x.dataset.themeChoice===key))}
+function applyDesign(){const key=THEMES[db.theme]?db.theme:'ledger',cfg=THEMES[key];db.theme=key;document.documentElement.dataset.theme=key;document.documentElement.dataset.font=db.font||'modern';const t=document.querySelector('meta[name=theme-color]');if(t)t.content=cfg.meta;const b=$('themeBrand');if(b)b.textContent='MGC / '+cfg.brand;const f=$('footerThemeName');if(f)f.textContent=cfg.brand;const n=$('themeCurrentName');if(n)n.textContent=cfg.label;const d=$('themeCurrentDescription');if(d)d.textContent=cfg.desc;const hw=$('heroWord');if(hw)hw.textContent=cfg.heroWord||'ZEIT';const hs=$('heroSubline');if(hs)hs.textContent=cfg.heroSub||'Arbeitszeit · Urlaub · Krank';const hst=$('heroStamp');if(hst)hst.textContent=cfg.heroStamp||'08H';const hc=$('heroClock');if(hc)hc.textContent=cfg.heroClock||'◷';const hr=$('heroRuleLabel');if(hr)hr.textContent=cfg.heroRule||'Monthly work log';document.querySelectorAll('.themeChoice').forEach(x=>x.classList.toggle('active',x.dataset.themeChoice===key))}
 function normalizeObjects(v){return Array.isArray(v)?v.filter(x=>OBJECTS.includes(x)):[]}
 function objectsText(v){const a=normalizeObjects(v);return a.length?a.join(', '):''}
 function setupMultiSelect(id,getSelection,setSelection){const root=$(id),button=root.querySelector('.multiSelectButton'),menu=root.querySelector('.multiSelectMenu'),textEl=root.querySelector('.msText');function draw(){const selected=normalizeObjects(getSelection());menu.innerHTML='';OBJECTS.forEach(name=>{const lab=document.createElement('label');lab.className='msOption';const cb=document.createElement('input');cb.type='checkbox';cb.checked=selected.includes(name);cb.onchange=()=>{let a=normalizeObjects(getSelection());if(cb.checked&&!a.includes(name))a.push(name);if(!cb.checked)a=a.filter(x=>x!==name);setSelection(a);draw()};const sp=document.createElement('span');sp.textContent=name;lab.append(cb,sp);menu.appendChild(lab)});const a=normalizeObjects(getSelection());textEl.textContent=a.length?a.join(', '):'Objekt(e) auswählen';button.title=textEl.textContent}button.onclick=e=>{e.stopPropagation();document.querySelectorAll('.multiSelectMenu').forEach(m=>{if(m!==menu)m.classList.add('hidden')});menu.classList.toggle('hidden')};menu.onclick=e=>e.stopPropagation();root._draw=draw;draw()}
@@ -496,30 +580,45 @@ function scheduleBadgeClass(s){return s==='off'?'b-off':s==='vacation'?'b-vac':s
 function dateRange(start,end){const out=[];if(!start||!end)return out;let d=dateFromKey(start),last=dateFromKey(end);while(d<=last){out.push(dateKey(d));d=addDays(d,1)}return out}
 function shortScheduleDate(k){return new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'}).format(dateFromKey(k))}
 function renderSchedule(){
-  const root=$('scheduleCalendar');if(!root)return;root.innerHTML='';
+  const root=$('scheduleCalendar'),stats=$('scheduleStats');if(!root)return;root.innerHTML='';if(stats)stats.innerHTML='';
   const meta=db.scheduleMeta||{},latest=meta.latestRange;
   let keys=[];
   if(latest?.start&&latest?.end)keys=dateRange(latest.start,latest.end);
   else keys=Object.keys(db.schedule||{}).filter(k=>k.startsWith(activeMonth)).sort();
-  if(!keys.length){$('scheduleRangeLabel').textContent='Noch kein Dienstplan gespeichert';root.innerHTML='<div class="scheduleEmpty">Lade oben deinen PDF-Dienstplan hoch. Danach erscheint hier nur dein persönlicher Plan.</div>';return}
+  if(!keys.length){
+    $('scheduleRangeLabel').textContent='Noch kein Dienstplan gespeichert';
+    if(stats)stats.classList.add('hidden');
+    root.innerHTML='<div class="scheduleEmpty">Noch kein Plan gespeichert.<br>Unten kannst du deinen 2‑Wochen‑Dienstplan als PDF laden.</div>';
+    return
+  }
+  if(stats)stats.classList.remove('hidden');
   $('scheduleRangeLabel').textContent=latest?.start&&latest?.end?`${shortScheduleDate(latest.start)} – ${shortScheduleDate(latest.end)}`:`${activeMonth.split('-').reverse().join('.')}`;
+  const entries=keys.map(k=>({k,e:(db.schedule||{})[k]}));
+  const work=entries.filter(x=>x.e?.status==='work'),free=entries.filter(x=>x.e?.status==='off');
+  const todayKey=dateKey(today),next=work.find(x=>x.k>=todayKey)||work[0];
+  if(stats){
+    const nextTitle=next?`${shortScheduleDate(next.k)}${next.e?.time?' · '+next.e.time:''}`:'Kein Dienst';
+    const nextSub=next?.e?.raw||'';
+    stats.innerHTML=`<div class="scheduleStat"><span>Dienste</span><b>${work.length}</b></div><div class="scheduleStat"><span>Freie Tage</span><b>${free.length}</b></div><div class="scheduleStat wide"><div><span>Nächster Dienst</span><b>${escapeHtml(nextTitle)}</b>${nextSub?`<small>${escapeHtml(nextSub)}</small>`:''}</div><span class="badge b-work">NÄCHSTES</span></div>`;
+  }
   for(let i=0;i<keys.length;i+=7){
     const week=document.createElement('div');week.className='scheduleWeek';
     const slice=keys.slice(i,i+7);
     const title=document.createElement('div');title.className='scheduleWeekTitle';title.textContent=`Woche ${Math.floor(i/7)+1} · ${shortScheduleDate(slice[0])} – ${shortScheduleDate(slice[slice.length-1])}`;week.appendChild(title);
-    const grid=document.createElement('div');grid.className='scheduleDays';
+    const list=document.createElement('div');list.className='scheduleList';
     slice.forEach(k=>{
-      const e=(db.schedule||{})[k],card=document.createElement('div');const status=e?.status||'';
-      card.className='scheduleDay '+(status||'');if(k===dateKey(today))card.classList.add('today');
+      const e=(db.schedule||{})[k],status=e?.status||'';
+      const row=document.createElement('div');row.className='scheduleRow '+(status||'');if(k===todayKey)row.classList.add('today');
+      const d=dateFromKey(k),wd=new Intl.DateTimeFormat('de-DE',{weekday:'short'}).format(d),dm=new Intl.DateTimeFormat('de-DE',{day:'2-digit',month:'2-digit'}).format(d);
+      const time=e?.time|| (status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—');
+      const assignment=e?.raw&&!/^(AF!*|U|K)$/i.test(e.raw)?e.raw:(e?'':'Kein Eintrag');
       const badge=e?`<span class="badge ${scheduleBadgeClass(status)}">${scheduleStatusLabel(status)}</span>`:'';
-      const time=e?.time||'',assignment=e?.raw||'';
-      card.innerHTML=`<div class="sdTop"><div class="sdDate">${shortScheduleDate(k)}</div>${badge}</div><div class="sdTime">${time|| (status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—')}</div><div class="sdAssignment"></div>${e?'<button class="sdAction" type="button">In Zeiterfassung übernehmen</button>':''}<div class="sdSource"></div>`;
-      card.querySelector('.sdAssignment').textContent=assignment && !/^(AF!*|U|K)$/i.test(assignment)?assignment:(e?'':'Kein Eintrag');
-      const src=card.querySelector('.sdSource');if(src)src.textContent=e?.sourceFile?'aus '+e.sourceFile:'';
-      const b=card.querySelector('.sdAction');if(b)b.onclick=()=>takeScheduleToTime(k);
-      grid.appendChild(card);
+      const action=e&&status==='work'?'<button class="srAction" type="button">Übernehmen</button>':'';
+      row.innerHTML=`<div class="srDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div><div class="srInfo"><div class="srTime">${escapeHtml(time)}</div><div class="srAssignment">${escapeHtml(assignment)}</div></div><div class="srSide">${badge}${action}</div>`;
+      const b=row.querySelector('.srAction');if(b)b.onclick=()=>takeScheduleToTime(k);
+      list.appendChild(row);
     });
-    week.appendChild(grid);root.appendChild(week);
+    week.appendChild(list);root.appendChild(week);
   }
 }
 function takeScheduleToTime(k){
@@ -629,10 +728,22 @@ function renderSchedulePreview(){
   const root=$('schedulePreview');root.innerHTML='';
   pendingScheduleImport.forEach((e,i)=>{
     const row=document.createElement('div');row.className='schedulePreviewRow';
-    row.innerHTML=`<div class="schedulePreviewDate"><b>${shortScheduleDate(e.date)}</b><small>${e.date}</small></div><div><label>Beginn</label><input type="time" data-plan-time="${i}" value="${e.time||''}"></div><div><label>Einsatz / Status</label><input type="text" data-plan-raw="${i}" value=""></div>`;
+    const noTime=e.status==='off'||e.status==='vacation'||e.status==='sick';
+    const noTimeLabel=e.status==='off'?'Frei':e.status==='vacation'?'Urlaub':'Krank';
+    const noTimeClass=e.status==='off'?'b-off':e.status==='vacation'?'b-vac':'b-sick';
+    const timeCell=noTime
+      ?`<div class="schedulePreviewField"><label>Status</label><div class="schedulePreviewNoTime"><span class="badge ${noTimeClass}">${noTimeLabel}</span></div></div>`
+      :`<div class="schedulePreviewField"><label>Beginn</label><input type="time" data-plan-time="${i}" value="${e.time||''}"></div>`;
+    row.innerHTML=`<div class="schedulePreviewDate"><b>${shortScheduleDate(e.date)}</b><small>${e.date}</small></div><div class="schedulePreviewFields">${timeCell}<div class="schedulePreviewAssignment"><label>Einsatz / Status</label><input type="text" data-plan-raw="${i}" value=""></div></div>`;
     row.querySelector('[data-plan-raw]').value=e.raw||'';
-    row.querySelector('[data-plan-time]').oninput=ev=>{pendingScheduleImport[i].time=ev.target.value;pendingScheduleImport[i].status=scheduleStatusFromRaw(pendingScheduleImport[i].raw,ev.target.value)};
-    row.querySelector('[data-plan-raw]').oninput=ev=>{pendingScheduleImport[i].raw=ev.target.value.trim();pendingScheduleImport[i].status=scheduleStatusFromRaw(ev.target.value,pendingScheduleImport[i].time)};
+    const timeInput=row.querySelector('[data-plan-time]');
+    if(timeInput)timeInput.oninput=ev=>{pendingScheduleImport[i].time=ev.target.value;pendingScheduleImport[i].status=scheduleStatusFromRaw(pendingScheduleImport[i].raw,ev.target.value)};
+    row.querySelector('[data-plan-raw]').onchange=ev=>{
+      pendingScheduleImport[i].raw=ev.target.value.trim();
+      pendingScheduleImport[i].status=scheduleStatusFromRaw(ev.target.value,pendingScheduleImport[i].time);
+      if(pendingScheduleImport[i].status!=='work')pendingScheduleImport[i].time='';
+      renderSchedulePreview();
+    };
     root.appendChild(row);
   });
   $('schedulePreviewCard').classList.remove('hidden');

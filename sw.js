@@ -1,4 +1,4 @@
-const CACHE = 'sabrina-zeit-v9-dienstplan-fix';
+const CACHE = 'sabrina-zeit-v13-six-headers';
 const ASSETS = [
   './',
   './index.html',

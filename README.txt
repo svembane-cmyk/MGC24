@@ -23,3 +23,15 @@ Wenn nach dem GitHub-Update noch eine alte App-Version erscheint, die Web-App ei
 
 
 v9: Dienstplan-PDF-Import repariert. Datumsfelder werden nun sowohl als '28. Sep' als auch als getrennte '28.' + 'Sep'-Textteile erkannt.
+
+
+v10: Dienstplan-Ansicht als kompakte 2-Wochen-Agenda, Dienst-Zusammenfassung und PDF-Import nach unten verschoben.
+
+
+v10: Dienstplan als kompakte Wochenliste; AF/Frei, Urlaub und Krank ohne Uhrzeitenfeld in der Import-Vorschau.
+
+v11: Mobile Import-Vorschau im Dienstplan neu aufgebaut; Felder stapeln auf kleinen Displays, damit nichts mehr überlappt.
+
+v12: Kopfbereich reagiert jetzt stärker auf das gewählte Design (Branding, Titelwort, Unterzeile, Stempel und Symbol ändern sich je Theme).
+
+v13: Sechs eigenständige Header-Designs. ZEIT bleibt als App-Identität, aber Layout, Typografie, Dekoration, Stempel und Symbol wechseln passend zum Theme.
