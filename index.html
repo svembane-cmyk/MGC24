@@ -289,33 +289,44 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
 
 
 
-/* ---------- v17 · Einfacher mobiler Dienstplan-Editor ---------- */
-.planEditorGrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px}
-.planEditorGrid>div{min-width:0}
-.planEditorGrid label{margin-top:0}
-.planEditorGrid input,.planEditorGrid select{width:100%;min-width:0}
-.planEditorActions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}
-.planEditorActions button{width:100%;min-height:48px}
-.planEditorActions .secondary{background:var(--field)}
-.planEditorActions .danger{background:transparent;color:var(--redText);border-color:color-mix(in srgb,var(--redText) 45%,var(--line))}
+/* ---------- v18 · Wochen-Dienstplan ---------- */
+.weekPlannerHead{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:7px;align-items:end;margin-top:10px}
+.weekPlannerHead button{height:46px;padding:0;font-size:20px}
+.weekPlannerHead label{margin:0}
+.weekPlannerHead input{width:100%;min-width:0}
+.weekPlannerRange{margin-top:8px;font:850 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.05em}
+.weekPlanner{display:grid;gap:9px;margin-top:12px}
+.weekPlanDay{border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--field);padding:10px;min-width:0}
+.weekPlanDay.today{outline:2px solid var(--accent);outline-offset:1px}
+.weekPlanDayHead{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px;align-items:end}
+.weekPlanDate b{display:block;font-size:13px;text-transform:uppercase}
+.weekPlanDate span{display:block;margin-top:2px;font-size:9px;color:var(--muted)}
+.weekPlanDay label{margin-top:0;font-size:8px}
+.weekPlanDay select,.weekPlanDay input{width:100%;min-width:0;min-height:42px;padding:8px 9px}
+.weekPlanWork{display:grid;grid-template-columns:105px minmax(0,1fr);gap:8px;margin-top:8px}
+.weekPlanWork.hidden{display:none}
+.weekPlannerActions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}
+.weekPlannerActions button{width:100%;min-height:50px}
 .planEditorState{margin-top:8px;font-size:10px;color:var(--muted);line-height:1.4}
 #planEditorCard{scroll-margin-top:14px;scroll-margin-bottom:160px}
-#planWorkFields{display:grid;grid-template-columns:1fr;gap:10px}
 .scheduleRow{cursor:pointer}
 .scheduleRow .srSide{align-items:flex-end;justify-content:center}
 .srEditHint{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:800}
-.srTransfer{margin-top:5px;padding:5px 7px;font-size:8px;min-height:26px;white-space:nowrap}
-.scheduleRow.off .srTransfer,.scheduleRow.vacation .srTransfer,.scheduleRow.sick .srTransfer{display:none}
-.scheduleRow .srButtons{display:none}
 .scheduleList .scheduleRow:active{background:color-mix(in srgb,var(--accent) 7%,var(--field))}
+.scheduleRow.empty{opacity:.55;border-left-color:var(--line)}
 #schedulePanel{padding-bottom:120px}
-@media(min-width:520px){
-  #planWorkFields{grid-template-columns:150px minmax(0,1fr)}
-  .planEditorActions{grid-template-columns:1fr 1fr}
-  .planEditorActions .wide{grid-column:1/-1}
+@media(max-width:390px){
+  .weekPlanDayHead{grid-template-columns:78px minmax(0,1fr)}
+  .weekPlanWork{grid-template-columns:92px minmax(0,1fr)}
+  .weekPlanDay{padding:9px}
+  .weekPlanDay select,.weekPlanDay input{font-size:14px}
+}
+@media(min-width:620px){
+  .weekPlanner{grid-template-columns:1fr 1fr}
+  .weekPlanDay:last-child{grid-column:1/-1}
 }
 
-/* ---------- v17 · Plan + Ist Kalender ---------- */
+/* ---------- v18 · Plan + Ist Kalender ---------- */
 .day{min-height:86px;padding:6px 5px}.day .mark{margin-top:5px}.dayPlan{display:block;margin-top:5px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--accent) 14%,transparent);border-left:3px solid var(--accent);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.dayPlan.free{background:color-mix(in srgb,var(--offbg) 80%,transparent);border-left-color:var(--line);color:var(--muted)}.dayActual{display:block;margin-top:4px;padding:3px 4px;border-radius:3px;background:color-mix(in srgb,var(--ice) 45%,transparent);border-left:3px solid var(--blueText);font:850 7.5px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text);text-transform:none;overflow:hidden}.calendarLegend{display:flex;gap:14px;align-items:center;margin-top:11px;font:800 9px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);text-transform:uppercase}.calendarLegend span{display:flex;align-items:center;gap:5px}.calendarLegend i{display:inline-block;width:12px;height:8px;border-left:3px solid}.legendPlan{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:var(--accent)}.legendActual{background:color-mix(in srgb,var(--ice) 45%,transparent);border-color:var(--blueText)}
 @media(max-width:390px){.day{min-height:82px;padding:5px 4px}.dayPlan,.dayActual{font-size:7px;padding:3px}.day .n{font-size:10px}}
 @media(min-width:520px){.grid4{grid-template-columns:repeat(4,1fr)}.stat{min-height:86px}.ledgerHero{min-height:200px}.heroMain h1{font-size:72px}}
@@ -403,55 +414,21 @@ html[data-theme="afterhours"] .heroRule{border-top-color:rgba(255,255,255,.12);c
     </div>
 
     <div class="card" id="planEditorCard">
-      <div class="sectionKicker">05 · DIENST EINTRAGEN</div>
-      <div class="cardTitle"><div><b id="planEditorTitle">Dienst eintragen</b><div class="muted">Kurz und einfach: Datum, Art, Uhrzeit und Einsatz.</div></div></div>
+      <div class="sectionKicker">05 · WOCHE EINTRAGEN</div>
+      <div class="cardTitle"><div><b>Eine ganze Woche planen</b><div class="muted">Mo–So auf einmal. Änderungen kannst du später genauso einfach wieder speichern.</div></div></div>
 
-      <div class="planEditorGrid">
-        <div>
-          <label>Datum</label>
-          <input id="planDate" type="date">
-        </div>
-        <div>
-          <label>Was ist geplant?</label>
-          <select id="planStatus">
-            <option value="work">Dienst</option>
-            <option value="off">Frei</option>
-            <option value="vacation">Urlaub</option>
-            <option value="sick">Krank</option>
-          </select>
-        </div>
-
-        <div id="planWorkFields">
-          <div id="planTimeField">
-            <label>Beginn</label>
-            <input id="planTime" type="time">
-          </div>
-          <div id="planRawField">
-            <label>Einsatz</label>
-            <input id="planRaw" type="text" list="planObjects" placeholder="z. B. Büro, Getec oder HGS/Joki">
-            <datalist id="planObjects">
-              <option value="Johanniskirche"></option>
-              <option value="Gartenhaus"></option>
-              <option value="Hyparschale"></option>
-              <option value="Büro"></option>
-              <option value="HGS"></option>
-              <option value="Deck 13"></option>
-              <option value="Kontor"></option>
-              <option value="Außer Haus"></option>
-              <option value="Getec"></option>
-              <option value="Messe"></option>
-              <option value="Seebühne"></option>
-            </datalist>
-          </div>
-        </div>
+      <div class="weekPlannerHead">
+        <button id="prevPlanWeek" type="button" aria-label="Vorherige Woche">‹</button>
+        <div><label>Woche</label><input id="planWeekStart" type="date"></div>
+        <button id="nextPlanWeek" type="button" aria-label="Nächste Woche">›</button>
       </div>
+      <div id="planWeekRange" class="weekPlannerRange"></div>
+      <div id="weekPlanner" class="weekPlanner"></div>
 
-      <div class="planEditorActions">
-        <button id="savePlanEntry" class="primary" type="button">Speichern</button>
-        <button id="planToActual" class="secondary hidden" type="button">In Zeiterfassung übernehmen</button>
-        <button id="deletePlanEntry" class="danger hidden wide" type="button">Diesen Planeintrag löschen</button>
+      <div class="weekPlannerActions">
+        <button id="savePlanWeek" class="primary" type="button">Ganze Woche speichern</button>
       </div>
-      <div id="planEditorState" class="planEditorState">Tippe oben auf einen gespeicherten Dienst, um ihn zu ändern.</div>
+      <div id="planEditorState" class="planEditorState">Bei „Frei“, „Urlaub“ oder „Krank“ verschwinden Uhrzeit und Objekt automatisch.</div>
     </div>
 
     <div class="card scheduleImportCard">
@@ -684,74 +661,77 @@ function scheduleBadgeClass(s){return s==='off'?'b-off':s==='vacation'?'b-vac':s
 function dateRange(start,end){const out=[];if(!start||!end)return out;let d=dateFromKey(start),last=dateFromKey(end);while(d<=last){out.push(dateKey(d));d=addDays(d,1)}return out}
 function shortScheduleDate(k){return new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'}).format(dateFromKey(k))}
 
-function resetPlanEditor(date){
-  const k=date||$('planDate')?.value||dateKey(today);
-  if(!$('planDate'))return;
-  $('planDate').value=k;
-  $('planStatus').value='work';
-  $('planTime').value='';
-  $('planRaw').value='';
-  $('planEditorTitle').textContent='Dienst eintragen';
-  $('savePlanEntry').textContent='Speichern';
-  $('deletePlanEntry').classList.add('hidden');
-  $('planToActual').classList.add('hidden');
-  $('planEditorState').textContent='Tippe oben auf einen gespeicherten Dienst, um ihn zu ändern.';
-  togglePlanFields();
+function mondayOfDateKey(k){
+  const d=dateFromKey(k||dateKey(today)),day=(d.getDay()+6)%7;
+  return dateKey(addDays(d,-day));
 }
-function togglePlanFields(){
-  if(!$('planStatus'))return;
-  const work=$('planStatus').value==='work';
-  $('planWorkFields').style.display=work?'grid':'none';
+function planObjectOptions(current){
+  const values=['','Johanniskirche','Gartenhaus','Hyparschale','Büro','HGS','HGS/Joki','Deck 13','Kontor','Außer Haus','Getec','Messe','Seebühne'];
+  if(current&&!values.includes(current))values.push(current);
+  return values.map(v=>`<option value="${escapeHtml(v)}"${v===current?' selected':''}>${v||'Objekt auswählen'}</option>`).join('');
+}
+function renderPlanWeekEditor(anchorDate){
+  if(!$('weekPlanner'))return;
+  const monday=mondayOfDateKey(anchorDate||$('planWeekStart')?.value||dateKey(today));
+  $('planWeekStart').value=monday;
+  const sunday=dateKey(addDays(dateFromKey(monday),6));
+  $('planWeekRange').textContent=`${shortScheduleDate(monday)} – ${shortScheduleDate(sunday)}`;
+  const root=$('weekPlanner');root.innerHTML='';
+  for(let i=0;i<7;i++){
+    const k=dateKey(addDays(dateFromKey(monday),i)),e=(db.schedule||{})[k]||null,status=e?.status||'none';
+    const d=dateFromKey(k),wd=new Intl.DateTimeFormat('de-DE',{weekday:'short'}).format(d),dm=new Intl.DateTimeFormat('de-DE',{day:'2-digit',month:'2-digit'}).format(d);
+    const card=document.createElement('div');card.className='weekPlanDay'+(k===dateKey(today)?' today':'');card.dataset.date=k;
+    card.innerHTML=`<div class="weekPlanDayHead">
+      <div class="weekPlanDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div>
+      <div><label>Status</label><select data-week-status>
+        <option value="none"${status==='none'?' selected':''}>— kein Eintrag —</option>
+        <option value="work"${status==='work'?' selected':''}>Dienst</option>
+        <option value="off"${status==='off'?' selected':''}>Frei</option>
+        <option value="vacation"${status==='vacation'?' selected':''}>Urlaub</option>
+        <option value="sick"${status==='sick'?' selected':''}>Krank</option>
+      </select></div>
+    </div>
+    <div class="weekPlanWork${status==='work'?'':' hidden'}">
+      <div><label>Beginn</label><input data-week-time type="time" value="${escapeHtml(e?.time||'')}"></div>
+      <div><label>Objekt</label><select data-week-object>${planObjectOptions(e?.raw||'')}</select></div>
+    </div>`;
+    const statusSelect=card.querySelector('[data-week-status]');
+    statusSelect.onchange=()=>card.querySelector('.weekPlanWork').classList.toggle('hidden',statusSelect.value!=='work');
+    root.appendChild(card);
+  }
+}
+function shiftPlanWeek(days){
+  const current=mondayOfDateKey($('planWeekStart')?.value||dateKey(today));
+  renderPlanWeekEditor(dateKey(addDays(dateFromKey(current),days*7)));
+}
+function savePlanWeek(){
+  const cards=[...document.querySelectorAll('#weekPlanner .weekPlanDay')];
+  let missingTime=null;
+  cards.forEach(card=>{
+    const k=card.dataset.date,status=card.querySelector('[data-week-status]').value;
+    if(status==='none'){delete db.schedule[k];return}
+    const time=card.querySelector('[data-week-time]')?.value||'';
+    const raw=card.querySelector('[data-week-object]')?.value||'';
+    if(status==='work'&&!time){missingTime=k;return}
+    db.schedule[k]={time:status==='work'?time:'',raw:status==='work'?raw:'',status,sourceFile:'Manuell',importedAt:new Date().toISOString()};
+  });
+  if(missingTime){alert('Bitte bei '+shortScheduleDate(missingTime)+' noch eine Startzeit eintragen.');return}
+  save();renderAll();renderPlanWeekEditor($('planWeekStart').value);
+  $('planEditorState').textContent='Woche gespeichert ✓';
 }
 function editPlanEntry(k){
-  const e=(db.schedule||{})[k];
-  $('planDate').value=k;
-  $('planStatus').value=e?.status||'work';
-  $('planTime').value=e?.time||'';
-  $('planRaw').value=e?.raw||'';
-  $('planEditorTitle').textContent=e?'Dienst ändern':'Dienst eintragen';
-  $('savePlanEntry').textContent=e?'Änderung speichern':'Speichern';
-  $('deletePlanEntry').classList.toggle('hidden',!e);
-  $('planToActual').classList.toggle('hidden',!(e&&e.status==='work'));
-  $('planEditorState').textContent=e?'Ändere nur, was sich geändert hat, und tippe auf „Änderung speichern“.':'Für diesen Tag ist noch nichts geplant.';
-  togglePlanFields();
+  renderPlanWeekEditor(k);
   $('planEditorCard').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function savePlanEntry(){
-  const k=$('planDate').value,status=$('planStatus').value;
-  if(!k){alert('Bitte ein Datum auswählen.');return}
-  if(status==='work'&&!$('planTime').value){alert('Bitte die Startzeit eintragen.');return}
-  db.schedule[k]={
-    time:status==='work'?$('planTime').value:'',
-    raw:status==='work'?$('planRaw').value.trim():'',
-    status,
-    sourceFile:'Manuell',
-    importedAt:new Date().toISOString()
-  };
-  save();renderAll();editPlanEntry(k);
-  $('planEditorState').textContent='Gespeichert ✓';
-}
-function deletePlanEntry(){
-  const k=$('planDate').value;
-  if(!k||!db.schedule?.[k])return;
-  if(!confirm('Planeintrag für '+shortScheduleDate(k)+' wirklich löschen?'))return;
-  delete db.schedule[k];save();renderAll();resetPlanEditor(k);
-  $('planEditorState').textContent='Planeintrag gelöscht.';
-}
-function planToActual(){
-  const k=$('planDate').value;
-  if(!k||!db.schedule?.[k])return;
-  takeScheduleToTime(k);
+  $('planEditorState').textContent=shortScheduleDate(k)+' liegt in dieser Woche. Du kannst den Dienst direkt ändern und die Woche erneut speichern.';
 }
 
 function renderSchedule(){
   const root=$('scheduleCalendar'),stats=$('scheduleStats');if(!root)return;root.innerHTML='';if(stats)stats.innerHTML='';
-  const meta=db.scheduleMeta||{},latest=meta.latestRange;
-  let keys=Object.keys(db.schedule||{}).sort();
+  const keys=Object.keys(db.schedule||{}).sort();
   if(!keys.length){
     $('scheduleRangeLabel').textContent='Noch kein Dienstplan gespeichert';
     if(stats)stats.classList.add('hidden');
-    root.innerHTML='<div class="scheduleEmpty">Noch kein Plan gespeichert.<br>Unten kannst du deinen 2‑Wochen‑Dienstplan als PDF laden.</div>';
+    root.innerHTML='<div class="scheduleEmpty">Noch kein Plan gespeichert.<br>Unten kannst du direkt eine ganze Woche eintragen.</div>';
     return
   }
   if(stats)stats.classList.remove('hidden');
@@ -764,24 +744,25 @@ function renderSchedule(){
     const nextSub=next?.e?.raw||'';
     stats.innerHTML=`<div class="scheduleStat"><span>Dienste</span><b>${work.length}</b></div><div class="scheduleStat"><span>Freie Tage</span><b>${free.length}</b></div><div class="scheduleStat wide"><div><span>Nächster Dienst</span><b>${escapeHtml(nextTitle)}</b>${nextSub?`<small>${escapeHtml(nextSub)}</small>`:''}</div><span class="badge b-work">NÄCHSTES</span></div>`;
   }
-  for(let i=0;i<keys.length;i+=7){
+  const firstMonday=mondayOfDateKey(keys[0]),lastMonday=mondayOfDateKey(keys[keys.length-1]);
+  let weekStart=dateFromKey(firstMonday),weekNo=1;
+  while(dateKey(weekStart)<=lastMonday){
+    const monday=dateKey(weekStart),sunday=dateKey(addDays(weekStart,6));
     const week=document.createElement('div');week.className='scheduleWeek';
-    const slice=keys.slice(i,i+7);
-    const title=document.createElement('div');title.className='scheduleWeekTitle';title.textContent=`Woche ${Math.floor(i/7)+1} · ${shortScheduleDate(slice[0])} – ${shortScheduleDate(slice[slice.length-1])}`;week.appendChild(title);
+    const title=document.createElement('div');title.className='scheduleWeekTitle';title.textContent=`Woche ${weekNo} · ${shortScheduleDate(monday)} – ${shortScheduleDate(sunday)}`;week.appendChild(title);
     const list=document.createElement('div');list.className='scheduleList';
-    slice.forEach(k=>{
-      const e=(db.schedule||{})[k],status=e?.status||'';
-      const row=document.createElement('div');row.className='scheduleRow '+(status||'');if(k===todayKey)row.classList.add('today');
+    for(let i=0;i<7;i++){
+      const k=dateKey(addDays(weekStart,i)),e=(db.schedule||{})[k],status=e?.status||'';
+      const row=document.createElement('div');row.className='scheduleRow '+(status||'empty');if(k===todayKey)row.classList.add('today');
       const d=dateFromKey(k),wd=new Intl.DateTimeFormat('de-DE',{weekday:'short'}).format(d),dm=new Intl.DateTimeFormat('de-DE',{day:'2-digit',month:'2-digit'}).format(d);
-      const time=e?.time|| (status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—');
+      const time=e?.time||(status==='off'?'Frei':status==='vacation'?'Urlaub':status==='sick'?'Krank':'—');
       const assignment=e?.raw&&!/^(AF!*|U|K)$/i.test(e.raw)?e.raw:(e?'':'Kein Eintrag');
       const badge=e?`<span class="badge ${scheduleBadgeClass(status)}">${scheduleStatusLabel(status)}</span>`:'';
-      const action=e?`<div class="srEditHint">antippen<br>zum Ändern</div>`:'';
-      row.innerHTML=`<div class="srDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div><div class="srInfo"><div class="srTime">${escapeHtml(time)}</div><div class="srAssignment">${escapeHtml(assignment)}</div></div><div class="srSide">${badge}${action}</div>`;
-      row.onclick=()=>editPlanEntry(k);
-      list.appendChild(row);
-    });
+      row.innerHTML=`<div class="srDate"><b>${escapeHtml(wd)}</b><span>${escapeHtml(dm)}</span></div><div class="srInfo"><div class="srTime">${escapeHtml(time)}</div><div class="srAssignment">${escapeHtml(assignment)}</div></div><div class="srSide">${badge}<div class="srEditHint">antippen<br>zum Ändern</div></div>`;
+      row.onclick=()=>editPlanEntry(k);list.appendChild(row);
+    }
     week.appendChild(list);root.appendChild(week);
+    weekStart=addDays(weekStart,7);weekNo++;
   }
 }
 function takeScheduleToTime(k){
@@ -987,16 +968,15 @@ $('downloadExcel').onclick=()=>downloadFile(excelFile());$('shareExcel').onclick
 $('exportBackup').onclick=()=>downloadFile(new File([JSON.stringify(db,null,2)],`Zeiterfassung_Backup_${activeMonth}.json`,{type:'application/json'}));
 $('importBackup').onclick=()=>$('backupFile').click();$('backupFile').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.months)throw new Error();db=x;save();setDefaults();renderAll();alert('Backup geladen ✓')}catch(err){alert('Backup konnte nicht gelesen werden.')}};r.readAsText(f)};
 $('clearMonth').onclick=()=>{if(confirm('Alle Einträge dieses Monats wirklich löschen?')){db.months[activeMonth]={entries:{},manualWorkdays:null};save();renderAll()}};
-$('planStatus').onchange=togglePlanFields;
-$('planDate').onchange=()=>{const k=$('planDate').value;if(db.schedule?.[k])editPlanEntry(k);else resetPlanEditor(k)};
-$('savePlanEntry').onclick=savePlanEntry;
-$('deletePlanEntry').onclick=deletePlanEntry;
-$('planToActual').onclick=planToActual;
+$('planWeekStart').onchange=()=>renderPlanWeekEditor($('planWeekStart').value);
+$('prevPlanWeek').onclick=()=>shiftPlanWeek(-1);
+$('nextPlanWeek').onclick=()=>shiftPlanWeek(1);
+$('savePlanWeek').onclick=savePlanWeek;
 $('pickSchedulePdf').onclick=()=>$('schedulePdfFile').click();
 $('schedulePdfFile').onchange=e=>importScheduleFile(e.target.files?.[0]);
 $('cancelScheduleImport').onclick=()=>{pendingScheduleImport=[];$('schedulePreviewCard').classList.add('hidden');$('schedulePdfFile').value='';$('scheduleImportState').className='scheduleStatus';$('scheduleImportState').textContent='Import verworfen.'};
 $('saveScheduleImport').onclick=saveScheduleImport;
-setupMultiSelect('entryObjectSelect',()=>entryObjects,v=>entryObjects=v);setupMultiSelect('sheetObjectSelect',()=>sheetObjects,v=>sheetObjects=v);applyDesign();setDefaults();toggleEntryFields();resetPlanEditor(dateKey(today));renderAll();
+setupMultiSelect('entryObjectSelect',()=>entryObjects,v=>entryObjects=v);setupMultiSelect('sheetObjectSelect',()=>sheetObjects,v=>sheetObjects=v);applyDesign();setDefaults();toggleEntryFields();renderPlanWeekEditor(dateKey(today));renderAll();
 })();
 </script>
 
